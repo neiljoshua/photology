@@ -1,0 +1,36 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$white: #fff;
+$black: #000;
+$gray: #595959;
+$blue: #000033;
+$silver: #c0c0c0;
+$lightgray: #eeeeee;
+$seagreen: #b9e2e0;
+$darkseagreen: #6f8888;
+$container-max-width: 1024px;
+$content-lenght: 720px;
+
+header {
+	padding: 20px;
+	background-color: $silver;
+	.logo,
+	.title {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.title {
+		margin-left: 10px;
+		font-size: 28px;
+		text-decoration: none;
+		color: $white;
+	}
+	img {
+		width: 30px;
+	}
+
+}
