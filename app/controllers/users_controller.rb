@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
 	# before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+=======
+	before_action :set_user, only: [:show, :edit, :update, :destroy]
+>>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
 	def index
     @users = User.all
   end
@@ -21,7 +25,11 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
+<<<<<<< HEAD
 		redirect_to images_path
+=======
+		redirect_to @user
+>>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
 		else
 			render 'new'
 		end
@@ -46,7 +54,11 @@ class UsersController < ApplicationController
 
 	private
   def user_params
+<<<<<<< HEAD
     params.require(:user).permit(:name, :email, :username, :password)
+=======
+    params.require(:user).permit(:title, :text)
+>>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
   end
 
 end

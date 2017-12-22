@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171220123503) do
+=======
+ActiveRecord::Schema.define(version: 20171218005502) do
+>>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171220123503) do
     t.index ["gallery_id"], name: "index_images_on_gallery_id"
   end
 
+<<<<<<< HEAD
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -56,6 +61,8 @@ ActiveRecord::Schema.define(version: 20171220123503) do
     t.datetime "image_updated_at"
   end
 
+=======
+>>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"

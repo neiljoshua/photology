@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+<<<<<<< HEAD
 	# validates :password, presence: true
 	# validates :email, presence: true
 	has_many :photos
@@ -45,4 +46,10 @@ class User < ApplicationRecord
 			Digest::SHA2.hexdigest("#{self.salt}--#{pass}")
 		end
 
+=======
+	validates :password, presence: true,
+						lenght: {minimum: 8}
+	validates :email, presence: true
+	has_many :images, dependent: :destroy
+>>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
 end
