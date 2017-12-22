@@ -1,0 +1,26 @@
+!!!
+%html
+	%head
+		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		%title Photology
+		= csrf_meta_tags
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+	%body
+		%div#wrapper
+			%header
+				= link_to image_tag("logo/camera.png", alt: "Photology" ),
+					main_app.home_path,
+					{:class => 'logo'}
+				= link_to 'Photology', main_app.about_path,
+					{:class => 'title'}
+				%nav#menu
+					%p
+						= link_to 'Home', main_app.home_path
+						= link_to 'Photos', main_app.photos_path
+						= link_to 'About', main_app.about_path
+						= link_to 'Articles', main_app.articles_path
+				%access
+					%p
+						= link_to 'Log In', main_app.user_login_path
+			=yield

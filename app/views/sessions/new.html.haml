@@ -1,0 +1,11 @@
+/ %provide(:title, "Log In")
+%h1 Log In
+.row
+	= form_for(:session, url: user_login_path) do |f|
+		=f.label :email
+		=f.email_field :email, class: 'form-control'
+		=f.label :password
+		=f.password_field :password, class: 'form-control'
+		=f.submit "Log In", class: 'btn btn-primary'
+	%p.signup
+.row1 New user? #{link_to "Sign Up Now!", user_new_url}

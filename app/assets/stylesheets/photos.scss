@@ -1,0 +1,25 @@
+// Place all the styles related to the photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.media {
+	display: inline-block;
+	width: 100%;
+	clear: both;
+}
+
+.media-left {
+	display: block;
+	width: 48%;
+	float: left;
+	padding: 10px;
+	img {
+		width: 100%;
+	}
+}
+
+.media-heading {
+	width: 50%;
+}
+
+
