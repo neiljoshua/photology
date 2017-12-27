@@ -1,27 +1,27 @@
 module SessionsHelper
 
 	def sign_in(user)
-		session[:user_id] = user.user_id
+		session[:user_id] = user.id
 		self.current_user = user
 	end
 
 	#setter method
-	def current_user(user)
+	def current_user=(user)
 		@current_user = user
 	end
 
 	#Getter method
-	def current_user(user)
+	def current_user
 		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
 
 	def signed_in?
-		!current_user.nill
+		!current_user.nil?
 	end
 
-	def sing_out
-		session[:user_id] = nill
-		self.current_user = nill
+	def sign_out
+		session[:user_id] = nil
+		self.current_user = nil
 	end
 
 	def current_user?(user)
@@ -29,7 +29,7 @@ module SessionsHelper
 	end
 
 	def deny_access
-		redirect_to user_login_path, :notice => "Please sign in to access this page"
+		redirect_to login_path, :notice => "Please sign in to access this page."
 	end
 
 end

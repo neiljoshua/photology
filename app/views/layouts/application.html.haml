@@ -17,17 +17,14 @@
 				%nav#menu
 					%p
 						= link_to 'Home', main_app.home_path
-<<<<<<< HEAD
 						= link_to 'Photos', main_app.photos_path
 						= link_to 'About', main_app.about_path
 						= link_to 'Articles', main_app.articles_path
 				%access
-					%p
-						= link_to 'Log In', main_app.user_login_path
-=======
-						= link_to 'Images', main_app.images_path
-						= link_to 'Galleries', main_app.galleries_path
-						= link_to 'About', main_app.about_path
-						= link_to 'Articles', main_app.articles_path
->>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
+					-if signed_in?
+						%p
+							=link_to 'Log Out', logout_path , method: :delete
+					-else
+						%p
+							=link_to 'Log In', login_path
 			=yield

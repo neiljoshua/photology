@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
   @photo = Photo.new(photo_params)
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
-   redirect_to root_path
+   redirect_to photos_path
   else
    flash[:alert] = "Error adding new photo!"
    render :new
@@ -26,7 +26,7 @@ class PhotosController < ApplicationController
   @photo = Photo.find(params[:id])
     if @photo.destroy
       flash[:notice] = "Successfully deleted photo!"
-      redirect_to root_path
+      redirect_to photos_path
     else
       flash[:alert] = "Error deleting photo!"
     end

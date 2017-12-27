@@ -1,35 +1,35 @@
 class User < ApplicationRecord
-<<<<<<< HEAD
-	# validates :password, presence: true
-	# validates :email, presence: true
 	has_many :photos
 	attr_accessor :password
-	# attr_accessible :name, :email, :password, :password_confirmation
 
 	email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 
 	validates :name, presence: true,
-						length:	{ :maximun => 50 }
+						length: { maximum: 50 }
+
+	validates :username, presence: true
 
 	validates :email, presence: true,
-						format: { :with => email_regex },
-						uniqueness: { :case_sensitive => false }
+						format: { with: email_regex },
+						uniqueness: { case_sensitive: false }
 
-	validates :password, presence:true,
-						confirmation: true,
-						length: { :within => 6..40 }
+	validates :password, presence: true,
+						confirmation: { case_sensitive: true},
+						length: { within: 6..40 }
 
 	before_save :encrypt_password
 
-	def has_password?(submitted_password)
-		encrypted_password == encrypt(submitted_password)
-	end
 
+	# Class method that checks wether the user's email and submitted_password are valid.
 	def self.authenticate(email, submitted_password)
 		user = find_by_email(email)
 
-		return nil if user.neil?
+		return nil if user.nil?
 		return user if user.has_password?(submitted_password)
+	end
+
+	def has_password?(submitted_password)
+		encrypted_password == encrypt(submitted_password)
 	end
 
 	private
@@ -38,7 +38,7 @@ class User < ApplicationRecord
 			self.salt = Digest::SHA2.hexdigest("#{Time.now.utc}--#{password}") if self.new_record?
 
 			#Encrypt the password and store that in the encrypted password field
-			sel.encrypted_password = encrypt(password)
+			self.encrypted_password = encrypt(password)
 		end
 
 		#Encrypt the password using both the salt and the passed password
@@ -46,10 +46,8 @@ class User < ApplicationRecord
 			Digest::SHA2.hexdigest("#{self.salt}--#{pass}")
 		end
 
-=======
-	validates :password, presence: true,
-						lenght: {minimum: 8}
-	validates :email, presence: true
-	has_many :images, dependent: :destroy
->>>>>>> b53b7d9534e8315f3b0bca521a11e833b7b7b599
+		def user_params
+			params.require(:user).permit(:name, :email, :username, :password, :password_confirmation)
+		end
+
 end

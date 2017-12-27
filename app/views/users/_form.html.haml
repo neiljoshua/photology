@@ -19,10 +19,14 @@
 	%p
 		= form.label :Username
 		%br/
-		= form.text_field :usermane
+		= form.text_field :username
 	%p
 		= form.label :Password
 		%br/
 		= form.text_field :password
 	%p
-		= form.submit :Signup
+		= form.label "Confirm password"
+		%br/
+		= form.text_field :password_confirmation
+	%p
+		= form.submit "Sign up"

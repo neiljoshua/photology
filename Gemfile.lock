@@ -140,6 +140,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-footnotes (4.1.8)
+      rails (>= 3.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.1.4)
@@ -222,6 +224,7 @@ DEPENDENCIES
   paperclip (~> 5.0.0)
   puma (~> 3.7)
   rails (~> 5.1.4)
+  rails-footnotes (>= 3.7.9)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

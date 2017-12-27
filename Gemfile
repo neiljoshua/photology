@@ -49,6 +49,7 @@ group :development, :test do
   gem 'haml'
   gem 'html2haml'
   gem 'erb2haml'
+  gem 'rails-footnotes', '>= 3.7.9'
 end
 
 group :development do
