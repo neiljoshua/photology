@@ -1,0 +1,53 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category {
+	position: relative;
+	&_image {
+		display: block;
+		@include prefix(filter, brightness(70%),webkit ms o );
+		img {
+			display: block;
+			width: 100%;
+			@include media-min-width(tablet) {
+				min-height: 100vh;
+			}
+		}
+	}
+	&_link {
+		position: absolute;
+		font-family: $serif;
+		font-size: 32px;
+ 		bottom: 15px;
+ 		left: 15px;
+ 		color: $white;
+ 		@include media-min-width(tablet) {
+ 			font-size: 50px;
+ 		}
+	}
+	@include media-min-width (tablet) {
+		min-height: 100vh;
+	}
+}
+
+.scroll {
+	display: none;
+	@include media-min-width (tablet) {
+		display: block;
+		position: fixed;
+		z-index: 100;
+		margin: 10px 15px;
+		bottom: 0;
+		right: 0;
+		cursor: pointer;
+		i {
+			border: 2px solid $white;
+		  border-radius: 50%;
+		  padding: 8px;
+		  font-size: 30px;
+		  width: 30px;
+		  color: white;
+		}
+	}
+}

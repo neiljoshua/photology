@@ -1,0 +1,19 @@
+= form_with(model: [ @user, @photo]) do |form|
+	- if @photo.errors.any?
+		#error_explanation
+			%h3
+				= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:"
+			%ul
+				- @photo.errors.full_messages.each do |msg|
+					%li
+						= msg
+	= form.label :title
+	= form.text_field :title, value:@photo.title
+	= form.label :caption
+	= form.text_field :caption, value:@photo.caption
+	-if !(@photo.image.exists?)
+		= form.label :image
+		= form.file_field :image, class: 'form-control'
+	= form.label :category_id
+	= form.select :category_id, Category.all.map{|c| [c.name, c.id]} , :prompt => 'Select One'
+	= form.submit 'Submit Photo', class: "btn btn-primary"

@@ -1,0 +1,9 @@
+- @categories.each do |category|
+	- last_image = category.photos.last
+	.category
+		- if last_image.present?
+			= link_to image_tag(last_image.image.url, alt: category.name ), category_path(category), {:class => 'category_image'}
+			= link_to category.name, category_path(category), class: 'category_link'
+.scroll.bounce
+	%i.icon-arrow-down
+

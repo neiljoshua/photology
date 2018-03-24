@@ -1,0 +1,164 @@
+@import 'globals/reset.scss';
+@import	'globals/variables.scss';
+@import 'globals/mixin.scss';
+@import 'fonts';
+@import 'animation';
+@import 'form';
+@import 'hamburger';
+@import 'header';
+@import 'users';
+@import 'pages';
+@import 'sessions';
+@import 'photos';
+@import 'categories';
+@import 'icons';
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require icons
+ *= require_tree
+ *= require_self
+ */
+
+
+i{
+	font-size: 20px;
+	display: inline-block;
+	text-align: center;
+	width: 20px;
+}
+
+.page-title {
+	margin-top: 60px;
+	margin-bottom: 50px;
+	text-align: center;
+	font-size: 35px;
+	@include media-min-width (mobile) {
+		font-size: 45px
+	}
+	@include media-min-width (tablet) {
+		font-size: 55px
+	}
+}
+
+.notice {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid $purple;
+  text-align: center;
+  color: $purple;
+  font-size: 22px;
+}
+
+.menu {
+	position: fixed;
+	visibility: hidden;
+	height: 100%;
+	opacity: 0;
+	width: 100%;
+	right: -100%;
+	top: 0;
+	background-color: $purple;
+	@include prefix(transition, all .6s ease .2s, webkit ms o);
+	z-index: 200;
+	&_list {
+		color: $white;
+		a {
+			display: block;
+			margin: 20px auto;
+			color: $white;
+			background-color: $purple;
+			font-family: $sanserif;
+			text-transform: capitalize;
+			text-decoration: none;
+			font-size: 40px;
+			text-align: center;
+			font-weight: 300;
+			letter-spacing: 2px;
+			i{
+				font-size: 35px;
+				width: 35px;
+			}
+			&:hover{
+				color: $silver;
+			}
+		}
+	}
+	&__visible {
+		visibility: visible;
+		right: 0;
+		opacity: 1;
+		@include prefix(transition, all .6s ease 0.2s, webkit ms o);
+	}
+}
+
+.search {
+	position: fixed;
+	top: -10%;
+	width: 100%;
+	form {
+		width: 300px;
+		margin: 0 auto;
+		input {
+			font-size: 18px;
+			margin: 5px auto;
+			font-size: 25px;
+		}
+	}
+	&.visible {
+		top: 0;
+	}
+}
+
+.invisible {
+	display: none;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include prefix(transform, translateY(-50%) translateX(-50%), webkit ms o);
+	h1 {
+		text-align: center;
+	}
+}
+
+.center-x {
+	position: absolute;
+	left: 50%;
+	@include prefix(transform, translateX(-50%), webkit ms o);
+}
+
+.center-y {
+	position: absolute;
+	top: 50%;
+	@include prefix(transform, translateY(-50%), webkit ms o);
+}
+
+.wrapper_fixed {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: white;
+}
+
+.cat-col {
+	display: inline-block;
+	width: 25vw;
+	height: 100vh;
+	background-color: gray;
+}
+

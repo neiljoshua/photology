@@ -1,0 +1,81 @@
+.hamburger {
+		position: fixed;
+		visibility: visible;
+		top: 15px;
+		right: 15px;
+		margin: 0;
+		padding: 0;
+		width: 50px;
+		height: 50px;
+		font-size: 0;
+		text-indent: -9999px;
+		appearance: none;
+		box-shadow: none;
+		border-radius: none;
+		border: none;
+		cursor: pointer;
+		@include prefix(transition, background 0.6s, webkit ms o);
+		z-index: 2500;
+		&.dark-hamburger {
+			span {
+				background: $gray;
+				@include prefix(transition, transform 0.6s, webkit ms o);
+				&::before, &::after{
+					background-color: $gray;
+					@include prefix(transition, transform 0.6s, webkit ms o);
+				}
+			}
+		}
+		&:focus {
+			outline: none;
+		}
+		span {
+			display: block;
+			position: absolute;
+			top: 24px;
+			left: 14px;
+			right: 14px;
+			height: 3px;
+			background: $white;
+			&::before,
+			&::after {
+				position: absolute;
+				display: block;
+				left: 0;
+				width: 100%;
+				height: 3px;
+				background-color: $white;
+				content: "";
+				opacity: 1;
+			}
+			&::before {
+				top: -8px;
+			}
+			&::after{
+				bottom: -8px;
+			}
+		}
+}
+
+.hamburger--rot {
+		opacity: 1;
+		@include prefix(transition, opacity 0.6s 0.3s, webkit ms o);
+		span {
+			@include prefix(transition, transform 0.6s 0.3s, webkit ms o);
+		}
+}
+/* active state, i.e. menu open */
+.hamburger--rot.is-active {
+		opacity: .7;
+		span {
+			background: $white;
+			@include prefix(transition, transform 0.6s, webkit ms o);
+			transform: rotate(90deg);
+			&::before,
+			&::after {
+				background-color: $white;
+				@include prefix(transition, transform 0.6s, webkit ms o);
+			}
+		}
+}
+

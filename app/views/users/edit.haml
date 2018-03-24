@@ -1,0 +1,41 @@
+.edit-account.center
+	%h1.page-title Edit Profile
+	.col
+		%ul.edit-prof-nav
+			%li.edit-prof-nav__item
+				= link_to 'Profile', main_app.user_path(current_user), class: 'edit-prof-nav__link'
+			%li.edit-prof-nav__item
+				= link_to 'Log Out', logout_path(current_user) , method: :delete, class: 'edit-prof-nav__link'
+	.col
+		= form_with(model: @user) do |form|
+			-if @user.errors.any?
+				#error_explanation
+					%h2
+						= pluralize(@user.errors.count, "error")
+						prohibited
+						this User from being saved:
+						%ul
+							- @user.errors.full_message.each do |msg|
+								%li= msg
+			%p
+				= form.label :Name
+				%br/
+				= form.text_field :name
+			%p
+				= form.label :Email
+				%br/
+				= form.text_field :email
+			%p
+				= form.label :Username
+				%br/
+				= form.text_field :username
+			%p
+				= form.label :Password
+				%br/
+				= form.text_field :password
+			%p
+				= form.label 'Confirm password'
+				%br/
+				= form.text_field :password_confirmation
+			%p
+				= form.submit 'Save Changes', class: "btn btn-primary"

@@ -1,32 +1,80 @@
 class PhotosController < ApplicationController
 	#Index action, photos gets listed in the order at which they were created
+
+ before_action :correct_user, only: [:edit, :update, :destroy]
+
+ def correct_user
+	@photo = Photo.find_by(id: params[:id])
+	unless current_user?(@photo.user)
+	  redirect_to user_path(current_user)
+	end
+ end
+
  def index
-  @photos = Photo.order('created_at')
+  @photos = Photo.order('created_at DESC')
+ end
+
+ def order_cat
+ 	@photos = Photo.all.order('created_at DESC').group_by(:category_id)
+ end
+
+ def show
+    @photo = Photo.find(params[:id])
  end
 
  #New action for creating a new photo
  def new
-  @photo = Photo.new
+  @user = current_user
+  if @user.nil?
+  	redirect_to login_path
+  else
+		@photo = @user.photos.new
+	end
+ end
+
+ def edit
+ 	 @user = current_user
+	 @photo = @user.photos.find(params[:id])
  end
 
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
-  @photo = Photo.new(photo_params)
+ 	@user = current_user
+	@photo = @user.photos.create(photo_params)
+
   if @photo.save
-   flash[:notice] = "Successfully added new photo!"
-   redirect_to photos_path
+   flash.now[:notice] = "Successfully added new photo!"
+   redirect_to @user
   else
-   flash[:alert] = "Error adding new photo!"
+   flash.now[:alert] = "Error adding new photo!"
    render :new
   end
  end
 
+ 	def update
+ 		@user = current_user
+	  @photo = @user.photos.find(params[:id])
+
+	  if @photo.update(photo_params)
+	    redirect_to @user
+	  else
+	    render 'edit'
+	  end
+	end
+
+	def remove_image
+		photo = Photo.where(id: params[:id]).first
+		photo.image.destroy
+  	redirect_to request.referer
+	end
+
  #Destroy action for deleting an already uploaded image
   def destroy
-  @photo = Photo.find(params[:id])
+  @user = User.find(params[:user_id])
+  @photo = @user.photos.find(params[:id])
     if @photo.destroy
       flash[:notice] = "Successfully deleted photo!"
-      redirect_to photos_path
+      redirect_to user_path(@user)
     else
       flash[:alert] = "Error deleting photo!"
     end
@@ -34,7 +82,8 @@ class PhotosController < ApplicationController
 
  private
  #Permitted parameters when creating a photo. This is used for security reasons.
+
  def photo_params
-  params.require(:photo).permit(:title, :image)
+  params.require(:photo).permit(:title, :caption, :image, :category_id)
  end
 end

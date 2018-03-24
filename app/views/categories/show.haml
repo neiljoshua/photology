@@ -1,0 +1,13 @@
+%h2.page-title
+	= @category.name
+.media-buttons
+	%i.icon-grid2.show-grid2.active
+	%i.icon-grid3.show-grid3
+.media
+	- @category.photos.each do |category|
+		.media-block
+			- photos_by_cat = category
+			- if photos_by_cat.present?
+				= link_to image_tag(photos_by_cat.image.url, class: 'media-block__image'), showphotos_path(photos_by_cat.id),class: 'media-block__link'
+
+

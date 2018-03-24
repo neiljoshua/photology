@@ -2,30 +2,120 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
+.user {
+	padding: 60px 20px 0;
 	text-align: center;
-	font-size: 34px;
-	margin: 30px 0;
+	i {
+		font-size: 40px;
+		width: 40px;
+	}
+	@include media-min-width (tablet) {
+		text-align: left;
+	}
+	i,
+	h2,
+	p,
+	img {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	h2 {
+		width: 100%;
+		font-size: 40px;
+		margin: 30px 0;
+		font-family: $serif;
+	}
+	h3{
+		margin: 30px 0;
+		font-size: 30px;
+	}
+	p{
+		font-size: 38px;
+		margin: 0 20px;
+		font-family: $sanserif;
+	}
+}
+
+.user-menu {
+	display: block;
+	margin: 25px auto;
+	text-align: center;
+	@include media-min-width (tablet) {
+		text-align: left;
+	}
+	a {
+		display: inline-block;
+		padding: 10px 3px;
+		font-size: 20px;
+		@include prefix(transition, background-color .5s ease 0.1s, webkit ms o);
+		&:hover {
+			color: $silver;
+			background-color: $purple;
+			font-weight: 100;
+			@include prefix(transition, background-color .5s ease 0.1s, webkit ms o);
+		}
+	}
+}
+
+.edit-account {
+	width: 100%;
+	margin: 0 auto;
+	@include media-min-width (tablet) {
+		width: 768px;
+	}
+	.col {
+		display: block;
+		width: 100%;
+		height: 100%;
+		@include media-min-width (tablet) {
+			display: inline-block;
+			font-size: 0;
+		}
+		&:nth-child(2){
+			vertical-align: top;
+			@include media-min-width (tablet) {
+				width: 25%;
+			}
+		}
+		&:nth-child(3){
+			width: 74%;
+			margin: 0 auto;
+		}
+	}
+}
+
+.edit-prof-nav {
+	display: block;
+	width: 140px;
+	margin: 20px auto;
+	@include media-min-width(tablet) {
+		margin: 0 auto;
+	}
+	&__item {
+		display: inline-block;
+		text-align: center;
+		@include media-min-width(tablet) {
+			display: block;
+			text-align: left;
+			margin-bottom: 20px;
+		}
+	}
+	&__link {
+		border: 1px solid $purple;
+		padding: 5px;
+		@include media-min-width(tablet) {
+			border: none;
+		}
+	}
 }
 
 form {
-	display: block;
-	width: 600px;
-	margin: 0 auto;
-	label,
-	input {
-		display: block;
-		width: 100%;
-		margin-bottom: 10px;
-		font-size: 18px;
-	}
-	input {
-		padding: 10px 5px;
-		width: 98%;
-	}
 	.btn {
-		width: 100%;
-		margin: 50px 0;
+		display: block;
+		margin: 20px auto;
+		width: 200px;
 		background-color: #000;
 		color: #fff;
 		font-size: 18px;
@@ -40,4 +130,28 @@ form {
   margin: 40px auto;
   font-size: 18px;
   text-align: center;
+}
+
+.profile {
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	vertical-align: middle;
+	a,
+	button {
+		border: 1px solid $silver;
+	}
+	a {
+		padding: 8px;
+	}
+	button {
+		padding: 7px 2px;
+		width: 35px;
+		span {
+			color: black;
+		}
+		&:hover {
+			color: $purple;
+		}
+	}
 }

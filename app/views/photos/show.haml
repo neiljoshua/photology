@@ -1,0 +1,15 @@
+.show-photo
+	= image_tag(@photo.image.url, class: 'show-photo__image')
+	-if signed_in?
+		= link_to 'Back', :back, class: 'show-photo__link'
+		-if @photo.user_id == current_user.id
+			= link_to 'Edit', editphotos_path(user_id: current_user.id), class: 'show-photo__link'
+			= link_to 'Remove', [@photo.user, @photo], method: :delete, data: { confirm: 'Are you sure?'}, class: 'show-photo__link'
+	-else
+		= link_to 'Back', :back, class: 'show-photo__link'
+	%h2.show-photo__title
+		= @photo.title
+	%p.show-photo__caption
+		= @photo.caption
+	%p.show-photo__date
+		= @photo.created_at

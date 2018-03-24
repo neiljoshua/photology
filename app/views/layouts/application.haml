@@ -1,0 +1,37 @@
+!!!
+%html
+	%head
+		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		%title Photology
+		= csrf_meta_tags
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+	%body
+		%div#wrapper
+			%header
+				= link_to categories_path do
+					%i.icon-camera.logo
+			.search
+				= form_tag(home_path, method: :get) do
+					= text_field :title, params[:title]
+					= submit_tag 'Search', title: nil , class: 'invisible'
+			-if controller_name == "categories" && action_name == "index"
+				%a.hamburger.hamburger--rot
+					%span
+			-else
+				%a.hamburger.hamburger--rot.dark-hamburger
+					%span
+
+			%nav.menu
+				.menu_list.center
+					-if signed_in?
+						= link_to logout_path , method: :delete do
+							%i.icon-logout
+						= link_to 'Account', main_app.user_path(current_user.id)
+					-else
+						= link_to 'Log In', login_path
+					= link_to 'Categories', categories_path
+					= link_to 'Photos', home_path
+					= link_to 'About', main_app.about_path
+
+			=yield

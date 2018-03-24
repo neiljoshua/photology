@@ -1,6 +1,21 @@
-%h2 Welcome
-
-%p
-  %strong Name:
-  = current_user.name
-%p
+.user
+	%h2 Welcome
+	%i.icon-user
+	%p
+		/ %strong Name:
+		= @user.name
+	-if signed_in?
+		.user-menu
+			= link_to 'Edit Profile', edit_user_path(current_user)
+			= link_to 'Add Photo', main_app.photos_path
+			= link_to 'Log Out', logout_path , method: :delete
+.media-buttons
+	%i.icon-grid2.show-grid2.active
+	%i.icon-grid3.show-grid3
+.media
+	- @user.photos.reverse_each do |photo|
+		.media-block
+			/ Renders image
+			= link_to image_tag(photo.image.url, class: 'media-block__image'), showphotos_path(photo), class: 'media-block__link'
+			.media-body
+				%h3.media-body__heading= photo.title

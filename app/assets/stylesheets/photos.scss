@@ -2,24 +2,112 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.media {
-	display: inline-block;
-	width: 100%;
-	clear: both;
-}
-
-.media-left {
-	display: block;
-	width: 48%;
-	float: left;
-	padding: 10px;
-	img {
-		width: 100%;
+.media-buttons {
+	display: none;
+	@include media-min-width (tablet) {
+		display: block;
+		text-align: center;
+		i {
+			width: 40px;
+			font-size: 40px;
+			color: $silver;
+			&:hover,
+			&.active {
+				color: $black;
+				cursor: pointer;
+			}
+		}
 	}
 }
 
-.media-heading {
-	width: 50%;
+.media-block {
+	display: inline-block;
+	@include calc( width, '100% - 10px');
+	padding: 5px;
+	&__link {
+		display: block;
+	}
+	&__image {
+		display: block;
+		width: 100%;
+	}
+	@include media-min-width (mobile) {
+		@include calc( width, '50% - 20px');
+		padding: 10px;
+		@include prefix(transition, background-color 0.6s, webkit ms o);
+		&:hover {
+			color: $white;
+			background-color: $silver;
+			@include prefix(transition, background-color 0.6s, webkit ms o);
+			img {
+				@include prefix(filter, brightness(120%),webkit ms o );
+			}
+		}
+	}
 }
 
+.media {
+	display: block;
+	font-size: 0;
+	padding: 10px;
+	@include media-min-width (tablet) {
+		&.grid2 {
+			.media-block {
+				@include calc( width, '50% - 20px');
+			}
+		}
+		&.grid3 {
+			.media-block {
+				@include calc( width, '(100%/3) - 10px');
+				padding: 5px;
+			}
+		}
+	}
+}
 
+.media-body {
+	display: block;
+	&__heading {
+		text-align: center;
+		font-size: 22px;
+		padding: 10px 0;
+	}
+}
+
+.btn-danger {
+	display: inline-block;
+	vertical-align: middle;
+  font-weight: 600;
+}
+
+.show-photo {
+	margin: 70px 20px;
+	max-width: 980px;
+	@include media-min-width (desktop) {
+		margin: 70px auto;
+	}
+	&__image {
+		display: block;
+		width: 100%;
+		margin: 20px auto;
+		@include media-min-width (tablet) {
+			max-height: 70vh;
+		}
+	}
+	&__link {
+		display: inline-block;
+		margin: 20px 10px 15px 0;
+		color: $purple;
+	}
+	&__title {
+		font-size: 30px;
+		margin-bottom: 15px;
+	}
+	&__caption {
+		font-size: 20px;
+		margin-bottom:15px;
+	}
+	&__date {
+		font-size: 12px;
+	}
+}

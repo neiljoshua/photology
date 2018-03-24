@@ -1,0 +1,9 @@
+.wrapper_fixed
+	= link_to image_tag("logo/camera.png", alt: "Photology" ),
+					main_app.home_path, {:class => 'logo'}
+	.image
+		=image_tag(@photo.image.url, class: 'media-object')
+	.row
+		= render 'form'
+		%p.cancel
+			= link_to 'Cancel', user_path(current_user)

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-	has_many :photos
+	has_many :photos, dependent: :destroy
+	has_many :galleries, dependent: :destroy
 	attr_accessor :password
 
 	email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i

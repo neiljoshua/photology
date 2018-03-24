@@ -1,0 +1,4 @@
+#!/bin/bash
+
+MYSQL_COMMAND='source mysqldump -u$DB_USER -h$DB_HOST -p$DB_PASS $DB_NAME > photology_development_$(date +%F).sql'
+scp photology_development_$(date +%F).sql backups/.

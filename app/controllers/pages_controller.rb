@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
+
   def home
-  	# @images = Image.all
-  	@photos = Photo.all
+  	 @photos = Photo.search(params[:title])
   end
 
   def about
