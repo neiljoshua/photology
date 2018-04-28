@@ -19,8 +19,8 @@ label {
 }
 
 label {
-	// font-weight: 600;
 	font-size: 22px;
+	font-family: $sanserif;
 }
 
 input[type="text"],
@@ -33,6 +33,7 @@ textarea {
 	padding: 5px 0;
 	margin: 20px auto;
 	border-bottom: 1px solid $silver;
+	font-family: $sanserif;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

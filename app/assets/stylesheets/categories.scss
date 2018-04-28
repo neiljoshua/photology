@@ -1,9 +1,14 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+ overflow: hidden;
+}
 
 .category {
 	position: relative;
+	width: 100%;
+
 	&_image {
 		display: block;
 		@include prefix(filter, brightness(70%),webkit ms o );
@@ -14,10 +19,13 @@
 				min-height: 100vh;
 			}
 		}
+		@include media-min-width(tablet) {
+			height: 100vh;
+		}
 	}
 	&_link {
 		position: absolute;
-		font-family: $serif;
+		font-family: $sanserif;
 		font-size: 32px;
  		bottom: 15px;
  		left: 15px;
@@ -27,7 +35,7 @@
  		}
 	}
 	@include media-min-width (tablet) {
-		min-height: 100vh;
+		min-height: 100%;
 	}
 }
 

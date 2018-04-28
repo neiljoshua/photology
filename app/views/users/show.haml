@@ -10,12 +10,11 @@
 			= link_to 'Add Photo', main_app.photos_path
 			= link_to 'Log Out', logout_path , method: :delete
 .media-buttons
-	%i.icon-grid2.show-grid2.active
-	%i.icon-grid3.show-grid3
-.media
+	%a.icon-grid2.show-grid2.active
+	%a.icon-grid3.show-grid3
+#media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @user.photos.reverse_each do |photo|
-		.media-block
-			/ Renders image
-			= link_to image_tag(photo.image.url, class: 'media-block__image'), showphotos_path(photo), class: 'media-block__link'
+		.media-block{style: "background-image: url('#{image_path(photo.image.url)}')"}
 			.media-body
-				%h3.media-body__heading= photo.title
+				=link_to photo.caption,showphotos_path(photo), class: 'center media-body__link'
+				%h3.media-body__title= photo.title

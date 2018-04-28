@@ -7,7 +7,7 @@
 	@include media-min-width (tablet) {
 		display: block;
 		text-align: center;
-		i {
+		a {
 			width: 40px;
 			font-size: 40px;
 			color: $silver;
@@ -16,36 +16,12 @@
 				color: $black;
 				cursor: pointer;
 			}
-		}
-	}
-}
-
-.media-block {
-	display: inline-block;
-	@include calc( width, '100% - 10px');
-	padding: 5px;
-	&__link {
-		display: block;
-	}
-	&__image {
-		display: block;
-		width: 100%;
-	}
-	@include media-min-width (mobile) {
-		@include calc( width, '50% - 20px');
-		padding: 10px;
-		@include prefix(transition, background-color 0.6s, webkit ms o);
-		&:hover {
-			color: $white;
-			background-color: $silver;
-			@include prefix(transition, background-color 0.6s, webkit ms o);
-			img {
-				@include prefix(filter, brightness(120%),webkit ms o );
+			&.invisible {
+				display: none;
 			}
 		}
 	}
 }
-
 .media {
 	display: block;
 	font-size: 0;
@@ -53,24 +29,105 @@
 	@include media-min-width (tablet) {
 		&.grid2 {
 			.media-block {
-				@include calc( width, '50% - 20px');
+				@include calc( width, '50% - 10px');
 			}
 		}
 		&.grid3 {
 			.media-block {
 				@include calc( width, '(100%/3) - 10px');
-				padding: 5px;
+			}
+			.media-body {
+				font-size: 16px;
 			}
 		}
 	}
 }
 
+.media-block {
+	position: relative;
+	display: inline-block;
+	@include calc( width, '100% - 10px');
+	margin: 5px;
+	@include prefix(background-size, cover, webkit ms o);
+	overflow: hidden;
+	font-family: $serif;
+	&:before {
+		content: "";
+		display: block;
+		padding-bottom: 60%;
+	}
+
+	@include media-min-width (mobile) {
+		@include calc( width, '50% - 10px');
+	}
+
+	@include media-min-width(tablet) {
+		@include prefix(transition, background-color 0.7s ease-in .1s, webkit ms o);
+		&:hover {
+			@include prefix(transition, filter 0.7s ease-in , webkit ms o);
+			.media-body {
+				top: 0;
+				bottom: 0;
+				opacity: 1;
+				background-color: rgba( $black, .6 );
+				@include prefix(transition, all 0.7s ease-in , webkit ms o);
+				&__link {
+					font-size: 16px;
+					color: $white;
+				}
+				&__title {
+					bottom: 0;
+					font-size: 20px;
+					@include prefix(transition, all 0.7s ease-in 0.2s, webkit ms o);
+				}
+			}
+		}
+	}
+
+}
+
+
+
 .media-body {
-	display: block;
-	&__heading {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	opacity: 1;
+	overflow: hidden;
+	@include prefix(transition, all 0.7s ease-in , webkit ms o);
+	&__link {
+		display: block;
+		position: absolute;
+		font-size: 0;
+		width: 100%;
+		padding: 40% 0;
 		text-align: center;
-		font-size: 22px;
-		padding: 10px 0;
+		color: $white;
+		@include prefix(transition, all 0.7s ease-in , webkit ms o);
+	}
+	&__title {
+		position: absolute;
+		display: block;
+		@include calc( width, '100% - 40px');
+		bottom: 0;
+		text-align: left;
+		font-size: 18px;
+		color: $white;
+		border: 1px solid white;
+		padding: 10px;
+		margin: 10px;
+		@include prefix(transition, all 0.7s ease-in 0.3s, webkit ms o);
+	}
+	@include media-min-width(tablet) {
+		opacity: 0;
+		top: 0;
+		bottom: -50%;
+		&__title {
+			font-size: 0;
+			background-color: $white;
+			color: $gray;
+		}
 	}
 }
 
@@ -81,8 +138,8 @@
 }
 
 .show-photo {
-	margin: 70px 20px;
-	max-width: 980px;
+	margin: 70px auto;
+	max-width: 720px;
 	@include media-min-width (desktop) {
 		margin: 70px auto;
 	}
@@ -90,24 +147,27 @@
 		display: block;
 		width: 100%;
 		margin: 20px auto;
-		@include media-min-width (tablet) {
-			max-height: 70vh;
-		}
 	}
 	&__link {
 		display: inline-block;
 		margin: 20px 10px 15px 0;
 		color: $purple;
+		font-family: $serif;
+		font-size: 20px;
+		font-weight: 600;
 	}
 	&__title {
+		font-family: $sanserif;
 		font-size: 30px;
 		margin-bottom: 15px;
 	}
 	&__caption {
+		font-family: $serif;
 		font-size: 20px;
 		margin-bottom:15px;
 	}
 	&__date {
+		font-family: $sanserif;
 		font-size: 12px;
 	}
 }

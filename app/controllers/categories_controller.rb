@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @back_url = session[:back_path].last
   end
 
 	def new

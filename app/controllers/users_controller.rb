@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
 		@user = User.find(params[:id])
+		@back_url = session[:back_path].last
 	end
 
 	def new

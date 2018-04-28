@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-	get '/photos', to: 'photos#index', as: :home
+	get '/photos', to: 'photos#index', as: :photos
 	get 'pages/about', to: 'pages#about', as: :about
 
 	get  '/login', to: 'sessions#new', as: :login
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 	post '/users/', to: 'users#create'
 	get '/users/:id', to: 'users#show', as: :user
 
-	get '/photos', to: 'photos#new', as: :photos
+	get '/photos', to: 'photos#new', as: :newphoto
 	post '/photos', to: 'photos#create'
 	get '/photos/:id', to: 'photos#show', as: :showphotos
 	get '/photos/:id/edit', to: 'photos#edit', as: :editphotos

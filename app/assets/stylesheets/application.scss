@@ -30,6 +30,30 @@
  *= require_self
  */
 
+ html,
+ body{
+ 	width: 100%;
+ 	height: 100%;
+ }
+
+ body {
+ 	&.open-menu {
+ 		overflow: hidden;
+ 	}
+ }
+
+ .wrapper {
+ 	width: 100%;
+ 	overflow: hidden;
+ 	@include prefix(transition, opacity .7s ease-in-out .3s, webkit ms o);
+ 	&.open-menu {
+ 		.scroll,
+ 		header {
+ 			opacity: 0;
+ 			@include prefix(transition, opacity .6s ease-in-out .1s, webkit ms o);
+ 		}
+ 	}
+ }
 
 i{
 	font-size: 20px;
@@ -39,10 +63,11 @@ i{
 }
 
 .page-title {
-	margin-top: 60px;
+	margin-top: 80px;
 	margin-bottom: 50px;
 	text-align: center;
 	font-size: 35px;
+	font-family: $sanserif;
 	@include media-min-width (mobile) {
 		font-size: 45px
 	}
@@ -68,22 +93,20 @@ i{
 	width: 100%;
 	right: -100%;
 	top: 0;
-	background-color: $purple;
-	@include prefix(transition, all .6s ease .2s, webkit ms o);
-	z-index: 200;
+	background-color: rgba( $purple, .9 );
+	@include prefix(transition, all .6s linear .1s, webkit ms o);
+	z-index: 4000;
 	&_list {
 		color: $white;
 		a {
 			display: block;
 			margin: 20px auto;
 			color: $white;
-			background-color: $purple;
-			font-family: $sanserif;
+			font-family: $serif;
 			text-transform: capitalize;
 			text-decoration: none;
-			font-size: 40px;
+			font-size: 45px;
 			text-align: center;
-			font-weight: 300;
 			letter-spacing: 2px;
 			i{
 				font-size: 35px;
@@ -98,7 +121,7 @@ i{
 		visibility: visible;
 		right: 0;
 		opacity: 1;
-		@include prefix(transition, all .6s ease 0.2s, webkit ms o);
+		@include prefix(transition, all .6s linear 0.1s, webkit ms o);
 	}
 }
 
@@ -144,15 +167,6 @@ i{
 	position: absolute;
 	top: 50%;
 	@include prefix(transform, translateY(-50%), webkit ms o);
-}
-
-.wrapper_fixed {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: white;
 }
 
 .cat-col {

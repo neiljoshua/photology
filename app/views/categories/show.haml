@@ -1,13 +1,14 @@
 %h2.page-title
 	= @category.name
 .media-buttons
-	%i.icon-grid2.show-grid2.active
-	%i.icon-grid3.show-grid3
-.media
+	%a.icon-grid2.show-grid2.active
+	%a.icon-grid3.show-grid3
+#media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @category.photos.each do |category|
-		.media-block
-			- photos_by_cat = category
-			- if photos_by_cat.present?
-				= link_to image_tag(photos_by_cat.image.url, class: 'media-block__image'), showphotos_path(photos_by_cat.id),class: 'media-block__link'
-
+		- photos_by_cat = category
+		- if photos_by_cat.present?
+			.media-block{style: "background-image: url('#{image_path(photos_by_cat.image.url)}')"}
+				.media-body
+					=link_to photos_by_cat.caption, showphotos_path(photos_by_cat.id),class: 'center media-body__link'
+					%h3.media-body__title= photos_by_cat.title
 

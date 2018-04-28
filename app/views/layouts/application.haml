@@ -2,17 +2,25 @@
 %html
 	%head
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		-if controller_name == "photos" && action_name == "index"
+			%meta{:content => "reload", :name => "turbolinks-visit-control"}/
 		%title Photology
 		= csrf_meta_tags
+		= favicon_link_tag 'photology.ico'
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	%body
-		%div#wrapper
-			%header
-				= link_to categories_path do
-					%i.icon-camera.logo
+		.wrapper
+			-if controller_name == "categories" && action_name == "index"
+				%header.clear
+					= link_to categories_path do
+						%i.icon-camera.logo
+			-else
+				%header
+					= link_to categories_path do
+						%i.icon-camera.logo
 			.search
-				= form_tag(home_path, method: :get) do
+				= form_with url: photos_path do |form|
 					= text_field :title, params[:title]
 					= submit_tag 'Search', title: nil , class: 'invisible'
 			-if controller_name == "categories" && action_name == "index"
@@ -31,7 +39,7 @@
 					-else
 						= link_to 'Log In', login_path
 					= link_to 'Categories', categories_path
-					= link_to 'Photos', home_path
+					= link_to 'Photos', photos_path
 					= link_to 'About', main_app.about_path
 
 			=yield
