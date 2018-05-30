@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $document = $(document)
-console.log(' Document ',$document)
 
 $document.on 'turbolinks:load', (e) ->
 
@@ -29,8 +28,6 @@ $document.on 'turbolinks:load', (e) ->
     return
 
   detect_Hover()
-
-
 
 $(document).on 'click', 'a.hamburger', (e) ->
 

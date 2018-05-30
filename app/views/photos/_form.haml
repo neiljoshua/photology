@@ -16,4 +16,7 @@
 		= form.file_field :image, class: 'form-control'
 	= form.label :category_id
 	= form.select :category_id, Category.all.map{|c| [c.name, c.id]} , :prompt => 'Select One'
-	= form.submit 'Submit Photo', class: "btn btn-primary"
+	-if controller_name == "photos" && action_name == "edit"
+		= form.submit 'Save', class: "btn btn-primary"
+	-else
+		= form.submit 'Submit Photo', class: "btn btn-primary"

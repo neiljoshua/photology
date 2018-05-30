@@ -4,6 +4,7 @@
 
 $(document).on 'turbolinks:load', ->
  $currentElement = $('.category').first()
+
  $('.scroll').click ->
   $nextElement = $currentElement.next('.category')
   console.log(' Next element ! ',$nextElement)

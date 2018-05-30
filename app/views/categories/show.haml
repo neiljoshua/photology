@@ -8,7 +8,10 @@
 		- photos_by_cat = category
 		- if photos_by_cat.present?
 			.media-block{style: "background-image: url('#{image_path(photos_by_cat.image.url)}')"}
-				.media-body
-					=link_to photos_by_cat.caption, showphotos_path(photos_by_cat.id),class: 'center media-body__link'
-					%h3.media-body__title= photos_by_cat.title
+				= link_to showphotos_path(photos_by_cat.id), :class => 'media-block__link' do
+					.media-copy.center
+						%h3.media-copy__title= photos_by_cat.title
+						%p.media-copy__caption= photos_by_cat.caption
+						/ =link_to photos_by_cat.caption, showphotos_path(photos_by_cat.id),class: 'center media-body__link'
+						/ %h3.media-body__title= photos_by_cat.title
 

@@ -5,11 +5,8 @@
 	40% {
 		@include prefix(transform, translateY(-10px), webkit ms o);
 	}
-	60% {
+	80% {
 		@include prefix(transform, translateY(-5px), webkit ms o);
 	}
 }
 
-.bounce {
-	@include animation(bounce 2s infinite);
-}

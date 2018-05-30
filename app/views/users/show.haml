@@ -1,20 +1,24 @@
 .user
-	%h2 Welcome
 	%i.icon-user
 	%p
 		/ %strong Name:
 		= @user.name
 	-if signed_in?
-		.user-menu
-			= link_to 'Edit Profile', edit_user_path(current_user)
-			= link_to 'Add Photo', main_app.photos_path
-			= link_to 'Log Out', logout_path , method: :delete
+		%ul.user-menu
+			%li.user-menu__item
+				= link_to 'Edit Profile', edit_user_path(current_user)
+			%li.user-menu__item
+				= link_to 'Add Photo', main_app.photos_path
+			%li.user-menu__item
+				= link_to 'Log Out', logout_path , method: :delete
 .media-buttons
 	%a.icon-grid2.show-grid2.active
 	%a.icon-grid3.show-grid3
 #media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @user.photos.reverse_each do |photo|
 		.media-block{style: "background-image: url('#{image_path(photo.image.url)}')"}
-			.media-body
-				=link_to photo.caption,showphotos_path(photo), class: 'center media-body__link'
-				%h3.media-body__title= photo.title
+			= link_to showphotos_path(photo), :class => 'media-block__link' do
+				.media-copy.center
+					%h3.media-copy__title= photo.title
+					%p.media-copy__caption= photo.caption
+

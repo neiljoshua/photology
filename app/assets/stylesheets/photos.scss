@@ -1,3 +1,4 @@
+
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -13,7 +14,7 @@
 			color: $silver;
 			&:hover,
 			&.active {
-				color: $black;
+				color: $purple;
 				cursor: pointer;
 			}
 			&.invisible {
@@ -36,9 +37,6 @@
 			.media-block {
 				@include calc( width, '(100%/3) - 10px');
 			}
-			.media-body {
-				font-size: 16px;
-			}
 		}
 	}
 }
@@ -50,7 +48,44 @@
 	margin: 5px;
 	@include prefix(background-size, cover, webkit ms o);
 	overflow: hidden;
-	font-family: $serif;
+
+	&__link {
+
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba( $black, .6 );
+		z-index: 3;
+
+		@include media-min-width(tablet) {
+			background-color: rgba( $purple, 0 );
+			@include prefix(transition, background-color 0.7s ease-in-out 0.3s, webkit ms o);
+			&:hover {
+				background-color: rgba( $purple, .8 );
+				color: $white;
+				@include prefix(transition, background-color 0.6s ease-in-out 0.1s, webkit ms o);
+				.media-copy {
+					&__title {
+						color: $white;
+						font-size: 35px;
+						@include media-min-width(desktop) {
+							font-size: 45px;
+						}
+						@include prefix(transition, all 0.7s ease-in 0.1s, webkit ms o);
+					}
+					&__caption {
+						font-size: 14px;
+						@include prefix(transition, all 0.7s ease-in 0.1s, webkit ms o);
+					}
+				}
+			}
+		}
+
+	}
+
 	&:before {
 		content: "";
 		display: block;
@@ -61,72 +96,35 @@
 		@include calc( width, '50% - 10px');
 	}
 
-	@include media-min-width(tablet) {
-		@include prefix(transition, background-color 0.7s ease-in .1s, webkit ms o);
-		&:hover {
-			@include prefix(transition, filter 0.7s ease-in , webkit ms o);
-			.media-body {
-				top: 0;
-				bottom: 0;
-				opacity: 1;
-				background-color: rgba( $black, .6 );
-				@include prefix(transition, all 0.7s ease-in , webkit ms o);
-				&__link {
-					font-size: 16px;
-					color: $white;
-				}
-				&__title {
-					bottom: 0;
-					font-size: 20px;
-					@include prefix(transition, all 0.7s ease-in 0.2s, webkit ms o);
-				}
-			}
-		}
-	}
-
 }
 
-
-
-.media-body {
+.media-copy {
 	position: absolute;
+	text-align: center;
 	width: 100%;
-	top: 0;
-	bottom: 0;
-	opacity: 1;
-	overflow: hidden;
-	@include prefix(transition, all 0.7s ease-in , webkit ms o);
-	&__link {
-		display: block;
-		position: absolute;
-		font-size: 0;
-		width: 100%;
-		padding: 40% 0;
-		text-align: center;
-		color: $white;
-		@include prefix(transition, all 0.7s ease-in , webkit ms o);
-	}
 	&__title {
-		position: absolute;
-		display: block;
-		@include calc( width, '100% - 40px');
-		bottom: 0;
-		text-align: left;
-		font-size: 18px;
+		font-size: 32px;
+		font-family: $sanserif;
+		color: $purple;
+		letter-spacing: 2px;
+	}
+	&__caption {
+		margin-top: 5px;
+		font-size: 16px;
 		color: $white;
-		border: 1px solid white;
-		padding: 10px;
-		margin: 10px;
-		@include prefix(transition, all 0.7s ease-in 0.3s, webkit ms o);
+		font-family: $serif;
+		&:after{
+	    position: relative;
+	    display: block;
+			content: '\2014';
+		}
 	}
 	@include media-min-width(tablet) {
-		opacity: 0;
-		top: 0;
-		bottom: -50%;
-		&__title {
+		@include prefix(transition, background-color 0.6s ease-in-out .3s, webkit ms o);
+		&__title,
+			&__caption {
 			font-size: 0;
-			background-color: $white;
-			color: $gray;
+			@include prefix(transition, all 0.7s ease-in .1s, webkit ms o);
 		}
 	}
 }
@@ -138,7 +136,7 @@
 }
 
 .show-photo {
-	margin: 70px auto;
+	margin: 70px 20px;
 	max-width: 720px;
 	@include media-min-width (desktop) {
 		margin: 70px auto;
@@ -152,12 +150,11 @@
 		display: inline-block;
 		margin: 20px 10px 15px 0;
 		color: $purple;
-		font-family: $serif;
+		font-family: $sanserif;
 		font-size: 20px;
-		font-weight: 600;
 	}
 	&__title {
-		font-family: $sanserif;
+		font-family: $serif;
 		font-size: 30px;
 		margin-bottom: 15px;
 	}

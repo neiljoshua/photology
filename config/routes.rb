@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 	get '/users/:id', to: 'users#show', as: :user
 
 	get '/photos', to: 'photos#new', as: :newphoto
-	post '/photos', to: 'photos#create'
+	post '/photos', to: 'photos#create', as: :createphoto
 	get '/photos/:id', to: 'photos#show', as: :showphotos
 	get '/photos/:id/edit', to: 'photos#edit', as: :editphotos
 	delete'/photos/remover_image/:id(.:fotmat)', to: 'photos#remove_image', as: :remove_image
@@ -28,10 +28,6 @@ Rails.application.routes.draw do
 
 	resources :users do
 		resources :photos
-	end
-
-	resources :articles do
-		resources :comments
 	end
 
 	resources :galleries do

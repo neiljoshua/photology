@@ -1,12 +1,16 @@
 class CategoriesController < ApplicationController
 	include PhotosHelper
+
+	before_action only: [:show] do
+		@back_url = session[:back_path].last
+	end
+
 	def index
     @categories = Category.all
   end
 
   def show
     @category = Category.find(params[:id])
-    @back_url = session[:back_path].last
   end
 
 	def new

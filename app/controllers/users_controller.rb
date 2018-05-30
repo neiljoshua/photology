@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
 		@user = User.find(params[:id])
-		@back_url = session[:back_path].last
 	end
 
 	def new
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-			# byebug
 		 #  redirect_to login_path, notice: 'User was successfully created.'
 		  sign_in @user
       redirect_to @user, notice: 'User was successfully created.'
@@ -34,8 +32,6 @@ class UsersController < ApplicationController
 
 	def update
 	  @user = User.find(params[:id])
-	  byebug
-
 	  if @user.update(params)
 	    redirect_to @user
 	  else

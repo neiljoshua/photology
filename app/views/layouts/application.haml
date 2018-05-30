@@ -2,6 +2,7 @@
 %html
 	%head
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		%meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
 		-if controller_name == "photos" && action_name == "index"
 			%meta{:content => "reload", :name => "turbolinks-visit-control"}/
 		%title Photology
@@ -9,7 +10,7 @@
 		= favicon_link_tag 'photology.ico'
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-	%body
+		%body
 		.wrapper
 			-if controller_name == "categories" && action_name == "index"
 				%header.clear
@@ -23,22 +24,17 @@
 				= form_with url: photos_path do |form|
 					= text_field :title, params[:title]
 					= submit_tag 'Search', title: nil , class: 'invisible'
-			-if controller_name == "categories" && action_name == "index"
-				%a.hamburger.hamburger--rot
-					%span
-			-else
-				%a.hamburger.hamburger--rot.dark-hamburger
-					%span
+			%a.hamburger.hamburger--rot
+				%span
 
 			%nav.menu
 				.menu_list.center
 					-if signed_in?
-						= link_to logout_path , method: :delete do
-							%i.icon-logout
+						= link_to 'Log Out', logout_path , method: :delete
 						= link_to 'Account', main_app.user_path(current_user.id)
 					-else
 						= link_to 'Log In', login_path
-					= link_to 'Categories', categories_path
+					= link_to 'Categories' , categories_path
 					= link_to 'Photos', photos_path
 					= link_to 'About', main_app.about_path
 

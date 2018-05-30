@@ -1,11 +1,27 @@
 //Roboto Font
 
+/*Playfairdisplay*/
+@font-face {
+	font-family: 'PlayfairDisplay-Regular';
+	font-style: normal;
+  font-weight: 100;
+  src:font-url('Playfair_Display/PlayfairDisplay-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
 /* JosefinSans-Light */
 @font-face {
   font-family: 'JosefinSans-Light';
   font-style: normal;
   font-weight: 300;
   src:font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+/* JosefinSans-Regular */
+@font-face {
+  font-family: 'JosefinSans-Regular';
+  font-style: normal;
+  font-weight: 300;
+  src:font-url('Josefin_Sans/JosefinSans-Regular.ttf') format('truetype');
 }
 
 //JosefinSlab

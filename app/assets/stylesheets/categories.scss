@@ -8,6 +8,7 @@
 .category {
 	position: relative;
 	width: 100%;
+	text-transform: capitalize;
 
 	&_image {
 		display: block;
@@ -27,12 +28,30 @@
 		position: absolute;
 		font-family: $sanserif;
 		font-size: 32px;
- 		bottom: 15px;
- 		left: 15px;
  		color: $white;
+ 		letter-spacing: 5px;
+ 		text-align: center;
  		@include media-min-width(tablet) {
- 			font-size: 50px;
+ 			font-size: 120px;
  		}
+	}
+	&_caption {
+		display: block;
+		width: 100%;
+		font-family: $serif;
+		font-weight: 600;
+		text-align: center;
+		letter-spacing: 3px;
+		font-size: 14px;
+		margin: 10px 0;
+		@include media-min-width(tablet) {
+ 			font-size: 20px;
+ 		}
+ 		&:after{
+	    position: relative;
+	    display: block;
+			content: '\2014';
+		}
 	}
 	@include media-min-width (tablet) {
 		min-height: 100%;
@@ -40,22 +59,37 @@
 }
 
 .scroll {
-	display: none;
-	@include media-min-width (tablet) {
-		display: block;
-		position: fixed;
-		z-index: 100;
-		margin: 10px 15px;
-		bottom: 0;
-		right: 0;
-		cursor: pointer;
-		i {
-			border: 2px solid $white;
-		  border-radius: 50%;
-		  padding: 8px;
-		  font-size: 30px;
-		  width: 30px;
-		  color: white;
-		}
-	}
+  position: fixed;
+  width: 150px;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -75px;
+  z-index: 50;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  @include prefix(font-smoothing, antialiased ,webkit ms o );
+  .icon {
+  	@include prefix(transition, all .3s ease,webkit ms o );
+    width: 26px;
+    height: 44px;
+    display: block;
+    border-radius: 13px;
+    border: 2px solid $white;
+    margin: 0 auto;
+    &:before {
+    	@include prefix(transition, all .3s ease,webkit ms o );
+	    @include prefix(animation, bounce 2s ease infinite, webkit ms o);
+	    width: 6px;
+	    height: 6px;
+	    position: absolute;
+	    top: 20px;
+	    border-radius: 50%;
+	    background-color: $white;
+	    content: '';
+	    left: 50%;
+	    margin-left: -3px;
+    }
+  }
 }
+

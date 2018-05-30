@@ -3,17 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user {
-	padding: 60px 20px 0;
+	padding: 80px 20px 0;
 	text-align: center;
 	i {
 		font-size: 40px;
 		width: 40px;
 	}
-	@include media-min-width (tablet) {
-		text-align: left;
-	}
 	i,
-	h2,
 	p,
 	img {
 		display: inline-block;
@@ -21,16 +17,6 @@
 		vertical-align: middle;
 	}
 
-	h2 {
-		width: 100%;
-		font-size: 40px;
-		margin: 30px 0;
-		font-family: $serif;
-	}
-	h3{
-		margin: 30px 0;
-		font-size: 30px;
-	}
 	p{
 		font-size: 38px;
 		margin: 0 20px;
@@ -42,20 +28,39 @@
 	display: block;
 	margin: 25px auto;
 	text-align: center;
-	font-family: $serif;
-	@include media-min-width (tablet) {
-		text-align: left;
+	&__item{
+		display: inline-block;
+		border-right: 3px solid $purple;
+		&:last-child {
+			border:none;
+		}
 	}
 	a {
 		display: inline-block;
-		padding: 10px 3px;
-		font-size: 20px;
-		@include prefix(transition, background-color .5s ease 0.1s, webkit ms o);
-		&:hover {
-			color: $silver;
-			background-color: $purple;
-			font-weight: 100;
+		position: relative;
+		font-family: $serif;
+		padding: 0;
+		margin: 0px 15px;
+		font-size: 16px;
+		@include media-min-width (tablet) {
+			font-size: 18px;
 			@include prefix(transition, background-color .5s ease 0.1s, webkit ms o);
+			&:after {
+				display: block;
+		    position: absolute;
+		    content: '';
+		    width: 0;
+		    bottom: -4px;
+		    height: 2px;
+		    background: $purple;
+		    @include prefix(transition, width .6s ease 0.1s, webkit ms o);
+			}
+			&:hover {
+				&:after {
+					width: 100%;
+					@include prefix(transition, width .6s ease 0.1s, webkit ms o);
+				}
+			}
 		}
 	}
 }
@@ -99,7 +104,6 @@
 		text-align: center;
 		@include media-min-width(tablet) {
 			display: block;
-			text-align: left;
 			margin-bottom: 20px;
 		}
 	}

@@ -11,9 +11,13 @@ header {
 		display: block;
     margin: 20px;
     font-size: 30px;
-    color: $black;
     @include media-min-width (tablet) {
-    	font-size: 35px;
+    	margin: 30px;
+    	font-size: 40px;
+    	font-weight: 600;
+    	i {
+		    color: $purple;
+    	}
     }
 	}
 

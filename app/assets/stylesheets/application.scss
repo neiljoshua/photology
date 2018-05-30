@@ -96,24 +96,29 @@ i{
 	background-color: rgba( $purple, .9 );
 	@include prefix(transition, all .6s linear .1s, webkit ms o);
 	z-index: 4000;
+	@include media-min-width (tablet) {
+		width: 20%;
+	}
 	&_list {
 		color: $white;
 		a {
 			display: block;
-			margin: 20px auto;
+			margin: 25px 0;
 			color: $white;
-			font-family: $serif;
+			font-family: $serif-thin;
 			text-transform: capitalize;
 			text-decoration: none;
-			font-size: 45px;
+			font-size: 40px;
 			text-align: center;
 			letter-spacing: 2px;
+			@include prefix(transition, color .7s linear 0.1s, webkit ms o);
 			i{
 				font-size: 35px;
 				width: 35px;
 			}
 			&:hover{
 				color: $silver;
+				@include prefix(transition, color .7s linear 0.1s, webkit ms o);
 			}
 		}
 	}
