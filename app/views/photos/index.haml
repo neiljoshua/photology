@@ -2,7 +2,7 @@
 .media-buttons
 	%a.icon-grid2.show-grid2.active
 	%a.icon-grid3.show-grid3
-#media.media.grid2
+#media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @photos.each do |photo|
 		.media-block{style: "background-image: url('#{image_path(photo.image.url)}')"}
 			= link_to showphotos_path(photo), :class => 'media-block__link' do

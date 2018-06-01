@@ -68,6 +68,8 @@
   display: block;
   text-align: center;
   font-size: 12px;
+  opacity: 1;
+  @include prefix(transition, opacity .7s ease-in .2s ,webkit ms o );
   @include prefix(font-smoothing, antialiased ,webkit ms o );
   .icon {
   	@include prefix(transition, all .3s ease,webkit ms o );
@@ -90,6 +92,10 @@
 	    left: 50%;
 	    margin-left: -3px;
     }
+  }
+  &.scrolling {
+  	opacity: 0;
+  	@include prefix(transition, opacity .6s ease ,webkit ms o );
   }
 }
 

@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
 	#Index action, photos gets listed in the order at which they were created
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
- 	before_action only: [:index, :show] do
+ 	before_action only: [:show] do
 		@back_url = session[:back_path].last
 	end
 
@@ -38,7 +38,6 @@ class PhotosController < ApplicationController
 	def edit
 		@user = current_user
 		@photo = @user.photos.find(params[:id])
-		byebug
 	end
 
 	#Create action ensures that submitted photo gets created if it meets the requirements

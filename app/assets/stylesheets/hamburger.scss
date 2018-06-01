@@ -61,22 +61,22 @@
 
 .hamburger--rot {
 		opacity: 1;
-		@include prefix(transition, opacity 0.6s 0.2s, webkit ms o);
+		@include prefix(transition, opacity 0.6s linear 0.1s, webkit ms o);
 		span {
-			@include prefix(transition, transform 0.6s 0.2s, webkit ms o);
+			@include prefix(transition, transform 0.6s linear 0.1s, webkit ms o);
 		}
 }
 /* active state, i.e. menu open */
 .hamburger--rot.is-active {
-		opacity: .7;
+		opacity: .9;
 		span {
 			background: $white;
-			@include prefix(transition, transform 0.6s 0.2s, webkit ms o);
-			transform: rotate(180deg);
+			@include prefix(transition, transform 0.5s linear 0.1s, webkit ms o);
+			transform: rotate(90deg);
 			&::before,
 			&::after {
 				background-color: $white;
-				@include prefix(transition, transform 0.6s 0.2s, webkit ms o);
+				@include prefix(transition, transform 0.5s linear 0.1s, webkit ms o);
 			}
 		}
 }

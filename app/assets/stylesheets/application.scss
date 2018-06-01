@@ -45,12 +45,14 @@
  .wrapper {
  	width: 100%;
  	overflow: hidden;
- 	@include prefix(transition, opacity .7s ease-in-out .3s, webkit ms o);
+ 	header {
+		@include prefix(transition, opacity .6s linear .3s, webkit ms o);
+	}
  	&.open-menu {
  		.scroll,
  		header {
  			opacity: 0;
- 			@include prefix(transition, opacity .6s ease-in-out .1s, webkit ms o);
+ 			@include prefix(transition, opacity .6s linear .2s, webkit ms o);
  		}
  	}
  }
@@ -63,7 +65,7 @@ i{
 }
 
 .page-title {
-	margin-top: 80px;
+	margin-top: 100px;
 	margin-bottom: 50px;
 	text-align: center;
 	font-size: 35px;
@@ -88,45 +90,49 @@ i{
 .menu {
 	position: fixed;
 	visibility: hidden;
-	height: 100%;
-	opacity: 0;
-	width: 100%;
-	right: -100%;
+	right: 0;
+	left: 100%;
 	top: 0;
+	bottom: 0;
 	background-color: rgba( $purple, .9 );
-	@include prefix(transition, all .6s linear .1s, webkit ms o);
+	@include prefix(transition, all 0.5s linear 0.1s, webkit ms o);
 	z-index: 4000;
 	@include media-min-width (tablet) {
-		width: 20%;
+		right: -20%;
 	}
 	&_list {
 		color: $white;
 		a {
 			display: block;
 			margin: 25px 0;
-			color: $white;
+			color: $silver;
 			font-family: $serif-thin;
 			text-transform: capitalize;
 			text-decoration: none;
 			font-size: 40px;
 			text-align: center;
-			letter-spacing: 2px;
-			@include prefix(transition, color .7s linear 0.1s, webkit ms o);
+			letter-spacing: 1px;
+			@include prefix(transition, color .6s linear 0.1s, webkit ms o);
 			i{
 				font-size: 35px;
 				width: 35px;
 			}
-			&:hover{
-				color: $silver;
-				@include prefix(transition, color .7s linear 0.1s, webkit ms o);
+			&:hover,
+			&.active {
+				color: $white;
+				@include prefix(transition, color .6s linear 0.1s, webkit ms o);
+
 			}
 		}
 	}
 	&__visible {
 		visibility: visible;
 		right: 0;
-		opacity: 1;
-		@include prefix(transition, all .6s linear 0.1s, webkit ms o);
+		left:0;
+		@include prefix(transition, all 0.5s linear 0.1s, webkit ms o);
+		@include media-min-width (tablet) {
+			left: 75%;
+		}
 	}
 }
 

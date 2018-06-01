@@ -8,7 +8,6 @@ $document.on 'turbolinks:load', (e) ->
   count_media_blocks = ->
 
     media_children = $document.find(".media-block").length
-    console.log(' number of Photos', media_children)
     if media_children < 3
       $('.media-buttons a').toggleClass('invisible')
     else if media_children > 3
@@ -28,6 +27,23 @@ $document.on 'turbolinks:load', (e) ->
     return
 
   detect_Hover()
+
+  $ ->
+  timer = undefined
+  el = $('.scroll')
+  flag = false
+  $(window).scroll ->
+    if !flag
+      flag = true
+      el.addClass 'scrolling'
+    clearTimeout timer
+    timer = setTimeout((->
+      el.removeClass 'scrolling'
+      flag = false
+      return
+    ), 200)
+    return
+  return
 
 $(document).on 'click', 'a.hamburger', (e) ->
 
