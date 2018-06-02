@@ -46,7 +46,7 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  url: <%= ENV['mysql2://b6a643c60ac1c2:6d22df2a@us-cdbr-iron-east-04.cleardb.net/heroku_747dc1abc533e27?reconnect=true'] %>
+  CLEARDB_DATABASE_URL: <%= ENV['mysql2://b9f3c801638bc5:74ecee72@us-cdbr-iron-east-04.cleardb.net/heroku_6a6c4c916476655?reconnect=true'] %>
   # adapter: mysql2
   # encoding: utf8
   # reconnect: false
