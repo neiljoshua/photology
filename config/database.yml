@@ -19,4 +19,4 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  DATABASE_URL: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
