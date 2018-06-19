@@ -88,7 +88,7 @@ class PhotosController < ApplicationController
 	#Permitted parameters when creating a photo. This is used for security reasons.
 
 	def photo_params
-		arams.require(:photo).permit(:title, :caption, :image, :category_id)
+		params.require(:photo).permit(:title, :caption, :image, :category_id)
 	end
 
 end

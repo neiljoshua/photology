@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-	include PhotosHelper
 
 	before_action only: [:show] do
 		@back_url = session[:back_path].last
@@ -11,6 +10,19 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+  end
+
+   def all_photos
+    @all_photos = load_photos
+    # Will route/url show "category" for all photos page
+    # ie category/all or localhost:3000/photos
+  end
+
+  def photo
+    # @category_photo = load_photos.detect{|photo| photo.id == params[:id] }
+    @photo = Photo.find(params[:id])
+    # @categpry_photo = load_photos.detect{|photo| photo.id == params[:id]}
+    # Why using detect vs find
   end
 
 	def new
@@ -49,8 +61,12 @@ class CategoriesController < ApplicationController
 	end
 
 	private
-  def category_params
-    params.require(:category).permit(:name, :status)
-  end
+	  def category_params
+	    params.require(:category).permit(:name, :status)
+	  end
+
+	  def load_photos
+	      Photo.all.order('created_at DESC')
+    end
 
 end

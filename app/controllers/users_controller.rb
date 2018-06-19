@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def photo
+    @photo = Photo.find(params[:id])
+  end
+
 	def new
 		@user = User.new
 	end
@@ -22,7 +26,6 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-		 #  redirect_to login_path, notice: 'User was successfully created.'
 		  sign_in @user
       redirect_to @user, notice: 'User was successfully created.'
 		else

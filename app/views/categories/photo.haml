@@ -1,0 +1,4 @@
+- category_id = @photo['category_id']
+.photo-links
+	= link_to 'Back', category_path(category_id) , class: 'photo-links__link'
+= render "shared/photo"

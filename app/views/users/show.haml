@@ -17,7 +17,7 @@
 #media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @user.photos.reverse_each do |photo|
 		.media-block{style: "background-image: url('#{image_path(photo.image.url)}')"}
-			= link_to showphotos_path(photo), :class => 'media-block__link' do
+			= link_to users_user_photo_path(photo.user.id,photo.id), :class => 'media-block__link' do
 				.media-copy.center
 					%h3.media-copy__title= photo.title
 					%p.media-copy__caption= photo.caption

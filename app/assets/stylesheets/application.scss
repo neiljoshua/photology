@@ -90,15 +90,15 @@ i{
 .menu {
 	position: fixed;
 	visibility: hidden;
-	right: 0;
+	right: -100%;
 	left: 100%;
 	top: 0;
 	bottom: 0;
 	background-color: rgba( $purple, .9 );
-	@include prefix(transition, all 0.5s linear 0.1s, webkit ms o);
+	@include prefix(transition, all 0.6s ease-in-out, webkit ms o);
 	z-index: 4000;
 	@include media-min-width (tablet) {
-		right: -20%;
+		right: -25%;
 	}
 	&_list {
 		color: $white;
@@ -129,10 +129,10 @@ i{
 		visibility: visible;
 		right: 0;
 		left:0;
-		@include prefix(transition, all 0.5s linear 0.1s, webkit ms o);
 		@include media-min-width (tablet) {
 			left: 75%;
 		}
+		@include prefix(transition, all 0.6s ease-in-out, webkit ms o);
 	}
 }
 

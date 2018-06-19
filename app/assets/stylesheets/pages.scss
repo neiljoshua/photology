@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#wrapper {
+.wrapper {
 	&.fixed {
 		overflow-y: hidden;
 		height: 100vh;
 	}
+	.row {
+		h2 {
+			font-size: 50px;
+			letter-spacing: 3px;
+			font-family: $sanserif;
+		}
 
+		p {
+			letter-spacing: 2px;
+			font-family: $serif;
+		}
+	}
 }
