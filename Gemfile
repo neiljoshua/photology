@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'haml-rails', '>= 0.3.4'
+gem 'haml'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,8 +49,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'haml-rails', '>= 0.3.4'
-  gem 'haml'
   gem 'html2haml'
   gem 'erb2haml'
   gem 'rails-footnotes', '>= 3.7.9'
