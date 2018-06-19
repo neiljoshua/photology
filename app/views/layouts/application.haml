@@ -31,11 +31,11 @@
 				.menu_list.center
 					-if signed_in?
 						= link_to 'Log Out', logout_path , method: :delete
-						= link_to 'Account', main_app.user_path(current_user.id), :class => current_class?(main_app.user_path(current_user.id))
+						= link_to 'Account', main_app.user_path(current_user.id), "data-turbolinks" => "false", :class => current_class?(main_app.user_path(current_user.id))
 					-else
 						= link_to 'Log In', login_path, :class => current_class?(login_path)
-					= link_to 'Categories' , categories_path, :class => current_class?(categories_path)
-					= link_to 'Photos', photos_path, :class => current_class?(photos_path)
+					= link_to 'Categories' , categories_path, "data-turbolinks" => "false", :class => current_class?(categories_path)
+					= link_to 'Photos', photos_path, "data-turbolinks" => "false", :class => current_class?(photos_path)
 					= link_to 'About', main_app.about_path, :class => current_class?(about_path)
 
 			=yield

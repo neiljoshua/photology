@@ -9,16 +9,18 @@ header {
 	left: 0;
 	.logo {
 		display: block;
-    margin: 20px;
+    margin: 15px 10px;
     font-size: 30px;
-    @include media-min-width (tablet) {
-    	margin: 30px;
-    	font-size: 40px;
-    	font-weight: 600;
-    	i {
-		    color: $purple;
-    	}
+    @include media-min-width (mobile) {
+    	margin: 25px 20px;
     }
+    @include media-min-width (tablet) {
+    	margin: 35px 30px;
+    	font-size: 40px;
+    }
+  	i {
+	    color: $purple;
+  	}
 	}
 
 	.title {

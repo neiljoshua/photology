@@ -8,7 +8,7 @@
 		- photos_by_cat = category
 		- if photos_by_cat.present?
 			.media-block{style: "background-image: url('#{image_path(photos_by_cat.image.url)}')"}
-				= link_to showphotos_path(photos_by_cat.id), :class => 'media-block__link' do
+				= link_to categoryphoto_path(photos_by_cat.category_id,photos_by_cat.id), :class => 'media-block__link' do
 					.media-copy.center
 						%h3.media-copy__title= photos_by_cat.title
 						%p.media-copy__caption= photos_by_cat.caption
