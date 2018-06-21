@@ -1,41 +1,31 @@
-.edit-account.center
+.edit-account
 	%h1.page-title Edit Profile
-	.col
-		%ul.edit-prof-nav
-			%li.edit-prof-nav__item
-				= link_to 'Profile', main_app.user_path(current_user), class: 'edit-prof-nav__link'
-			%li.edit-prof-nav__item
-				= link_to 'Log Out', logout_path(current_user) , method: :delete, class: 'edit-prof-nav__link'
-	.col
-		= form_with(model: @user) do |form|
+	.row
+		%ul.user-menu
+			%li.user-menu__item
+				= link_to 'Profile', main_app.user_path(current_user)
+			%li.user-menu__item
+				= link_to 'Log Out', logout_path(current_user) , method: :delete
+	.row
+		= form_for @user, url: user_update_path do |form|
 			-if @user.errors.any?
 				#error_explanation
-					%h2
+					%h3
 						= pluralize(@user.errors.count, "error")
 						prohibited
 						this User from being saved:
 						%ul
-							- @user.errors.full_message.each do |msg|
+							- @user.errors.messages.each do |msg|
 								%li= msg
-			%p
-				= form.label :Name
-				%br/
-				= form.text_field :name
-			%p
-				= form.label :Email
-				%br/
-				= form.text_field :email
-			%p
-				= form.label :Username
-				%br/
-				= form.text_field :username
-			%p
-				= form.label :Password
-				%br/
-				= form.text_field :password
-			%p
-				= form.label 'Confirm password'
-				%br/
-				= form.text_field :password_confirmation
-			%p
-				= form.submit 'Save Changes', class: "btn btn-primary"
+			%input{name: "_method", type: "hidden", value: "patch"}/
+			= form.label :Name
+			= form.text_field :name
+			= form.label :Email
+			= form.text_field :email
+			= form.label :Username
+			= form.text_field :username
+			= form.label :Password
+			= form.text_field :password, placeholder: "Enter New Password"
+			= form.label 'Confirm password'
+			= form.text_field :password_confirmation, placeholder: "Confirm New Password"
+			= form.submit 'Save Changes', class: "btn btn-primary"

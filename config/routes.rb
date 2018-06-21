@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
 
 	get '/photos', to: 'photos#index', as: :photos
-	get '/photos', to: 'photos#new', as: :newphoto
+	get '/photo', to: 'photos#new', as: :newphoto
 	post '/photos', to: 'photos#create', as: :createphoto
 	get '/photos/:id', to: 'photos#show', as: :showphotos
 	get '/photos/:id/edit', to: 'photos#edit', as: :editphotos
 	delete'/photos/remover_image/:id(.:fotmat)', to: 'photos#remove_image', as: :remove_image
+
 	get 'pages/about', to: 'pages#about', as: :about
 
 	get  '/login', to: 'sessions#new', as: :login
@@ -16,11 +17,10 @@ Rails.application.routes.draw do
 
 	get 'user/index', to: 'users#index', as: :users
 	get '/user/new', to: 'users#new', as: :signup
-	post '/users/', to: 'users#create'
-	get '/users/:id', to: 'users#show', as: :user
+	post '/user/', to: 'users#create', as: :user_create
+	patch '/users/:id/edit', to: 'users#update', as: :user_update
+	get '/users/:id', to: 'users#show', as: :user_id
 	get '/users/:user_id/photos/:id', to: 'users#photo', as: :users_user_photo
-
-
 
 	get 'categories/:id', to: 'categories#show', as: :categoryphotos
 	get '/categories/:category_id/photos/:id', to: 'categories#photo', as: :categoryphoto

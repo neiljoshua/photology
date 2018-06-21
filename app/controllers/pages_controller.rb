@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def about
+  	@categories = load_categories
   end
 end

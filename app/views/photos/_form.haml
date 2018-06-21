@@ -4,7 +4,7 @@
 			%h3
 				= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:"
 			%ul
-				- @photo.errors.full_messages.each do |msg|
+				- @photo.errors.messages.each do |msg|
 					%li
 						= msg
 	= form.label :title

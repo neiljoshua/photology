@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+  private
+
+  	def load_categories
+	     Category.all.order('created_at DESC')
+    end
+
 end

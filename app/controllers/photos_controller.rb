@@ -2,10 +2,6 @@ class PhotosController < ApplicationController
 	#Index action, photos gets listed in the order at which they were created
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
- 	before_action only: [:show] do
-		@back_url = session[:back_path].last
-	end
-
 	def correct_user
 		@photo = Photo.find_by(id: params[:id])
 		unless current_user?(@photo.user)
