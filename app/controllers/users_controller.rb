@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
 	def index
-		if @user.role == 1
-	    @users = User.all
-	  end
+	  @users = User.all
   end
 
   def show
@@ -27,15 +25,16 @@ class UsersController < ApplicationController
 
 		if @user.save
 		  sign_in @user
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to @user
 		else
+		  flash.now[:notice] ='There was an error saving'
 			render action:"new"
 		end
 	end
 
 	def update
 	  @user = User.find(params[:id])
-	  if @user.update(params)
+	  if @user.update(user_params)
 	    redirect_to @user
 	  else
 	    render 'edit'

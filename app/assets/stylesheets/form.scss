@@ -6,6 +6,9 @@ section {
 form {
 	width: 320px;
 	margin: 0 auto;
+	@include media-min-width(tablet) {
+		width: 100%;
+	}
 }
 
 input{

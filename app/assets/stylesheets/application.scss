@@ -7,6 +7,8 @@
 @import 'hamburger';
 @import 'header';
 @import 'users';
+@import 'slick';
+@import 'slick-theme';
 @import 'pages';
 @import 'sessions';
 @import 'photos';
@@ -136,6 +138,18 @@ i{
 	}
 }
 
+form {
+	.btn {
+		display: block;
+		margin: 50px auto;
+		width: 200px;
+		background-color: $purple;
+		color: $white;
+		font-size: 18px;
+		padding: 15px 10px;
+	}
+}
+
 .search {
 	position: fixed;
 	top: -10%;
@@ -187,3 +201,22 @@ i{
 	background-color: gray;
 }
 
+#error_explanation {
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	h3 {
+		margin: 10px;
+		font-size: 20px;
+		text-align: left;
+	}
+	ul {
+		display: block;
+		margin: 10px;
+		li {
+			display: inline-block;
+			font-size: 18px;
+			color: $purple;
+		}
+	}
+}

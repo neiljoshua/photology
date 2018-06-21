@@ -22,7 +22,6 @@
 		height: 100%;
 		vertical-align: middle;
 	}
-
 	p{
 		font-size: 38px;
 		margin: 0 20px;
@@ -75,6 +74,7 @@
 	width: 100%;
 	margin: 0 auto;
 	@include media-min-width (tablet) {
+		margin: 130px auto;
 		width: 768px;
 	}
 	.col {
@@ -95,42 +95,6 @@
 			width: 74%;
 			margin: 0 auto;
 		}
-	}
-}
-
-.edit-prof-nav {
-	display: block;
-	width: 140px;
-	margin: 20px auto;
-	@include media-min-width(tablet) {
-		margin: 0 auto;
-	}
-	&__item {
-		display: inline-block;
-		text-align: center;
-		@include media-min-width(tablet) {
-			display: block;
-			margin-bottom: 20px;
-		}
-	}
-	&__link {
-		border: 1px solid $purple;
-		padding: 5px;
-		@include media-min-width(tablet) {
-			border: none;
-		}
-	}
-}
-
-form {
-	.btn {
-		display: block;
-		margin: 20px auto;
-		width: 200px;
-		background-color: #000;
-		color: #fff;
-		font-size: 18px;
-		padding: 10px 10px;
 	}
 }
 

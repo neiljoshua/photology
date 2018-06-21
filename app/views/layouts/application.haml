@@ -3,9 +3,9 @@
 	%head
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 		%meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
-		-if controller_name == "photos" && action_name == "index"
-			%meta{:content => "reload", :name => "turbolinks-visit-control"}/
 		%title Photology
+		- if content_for?(:head)
+			= yield(:head)
 		= csrf_meta_tags
 		= favicon_link_tag 'photology.ico'
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -36,6 +36,6 @@
 						= link_to 'Log In', login_path, :class => current_class?(login_path)
 					= link_to 'Categories' , categories_path, "data-turbolinks" => "false", :class => current_class?(categories_path)
 					= link_to 'Photos', photos_path, "data-turbolinks" => "false", :class => current_class?(photos_path)
-					= link_to 'About', main_app.about_path, :class => current_class?(about_path)
+					= link_to 'About', main_app.about_path, "data-turbolinks" => "false", :class => current_class?(about_path)
 
 			=yield

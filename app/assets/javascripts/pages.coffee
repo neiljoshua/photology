@@ -28,6 +28,15 @@ $document.on 'turbolinks:load', (e) ->
 
   detect_Hover()
 
+  load_slick = ->
+    $('.slider').slick
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+
+  load_slick()
+
   $ ->
   timer = undefined
   el = $('.scroll')
@@ -64,3 +73,6 @@ $(document).on 'click', '.media-buttons a', (e) ->
     $(this).addClass('active')
     $('#media').removeClass('grid2').addClass 'grid3'
   return
+
+
+
