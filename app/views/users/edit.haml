@@ -3,9 +3,9 @@
 	.row
 		%ul.user-menu
 			%li.user-menu__item
-				= link_to 'Profile', main_app.user_path(current_user)
+				= link_to 'Profile', main_app.user_path(current_user), :class => 'user-menu__link'
 			%li.user-menu__item
-				= link_to 'Log Out', logout_path(current_user) , method: :delete
+				= link_to 'Log Out', logout_path(current_user) , method: :delete, :class => 'user-menu__link'
 	.row
 		= form_for @user, url: user_update_path do |form|
 			-if @user.errors.any?
@@ -19,11 +19,11 @@
 								%li= msg
 			%input{name: "_method", type: "hidden", value: "patch"}/
 			= form.label :Name
-			= form.text_field :name
+			= form.text_field :name, placeholder: "John Smith"
 			= form.label :Email
-			= form.text_field :email
+			= form.text_field :email, placeholder: "name@email.com"
 			= form.label :Username
-			= form.text_field :username
+			= form.text_field :username, placeholder: "awesome name"
 			= form.label :Password
 			= form.text_field :password, placeholder: "Enter New Password"
 			= form.label 'Confirm password'

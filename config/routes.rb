@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
+	root 'categories#index'
 
 	get '/photos', to: 'photos#index', as: :photos
 	get '/photo', to: 'photos#new', as: :newphoto
 	post '/photos', to: 'photos#create', as: :createphoto
-	get '/photos/:id', to: 'photos#show', as: :showphotos
-	get '/photos/:id/edit', to: 'photos#edit', as: :editphotos
+	get '/photos/:id', to: 'photos#show', as: :showphoto
+	get '/photos/:id/edit', to: 'photos#edit', as: :editphoto
 	delete'/photos/remover_image/:id(.:fotmat)', to: 'photos#remove_image', as: :remove_image
 
-	get 'pages/about', to: 'pages#about', as: :about
+	get '/about', to: 'pages#about', as: :about
 
 	get  '/login', to: 'sessions#new', as: :login
 	post '/login', to: 'sessions#create'
@@ -38,8 +39,6 @@ Rails.application.routes.draw do
 		resources :images
 	end
 
-
-	root 'categories#index'
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end

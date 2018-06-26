@@ -1,4 +1,5 @@
-.show-photo
+.edit-photo
+	= link_to 'Cancel', :back , :class => 'cancel_link'
 	-if @photo.image.exists?
 		.row
 			=link_to remove_image_path(@photo), method: :delete, data: { confirm: 'Are you sure?'} do
@@ -6,5 +7,4 @@
 			=image_tag(@photo.image.url, class: 'show-photo__image')
 	.row
 		= render 'form'
-		%p.cancel
-			= link_to 'Cancel', :back
+

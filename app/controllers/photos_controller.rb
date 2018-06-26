@@ -54,10 +54,10 @@ class PhotosController < ApplicationController
 		@user = current_user
 		@photo = @user.photos.find(params[:id])
 		if @photo.update(photo_params)
-			session[:back_path].pop
-			redirect_to session[:back_path].pop
+			byebug
+			redirect_to users_user_photo_path(@photo.id)
 		else
-			flash.now[:alert] = "Error adding new photo!"
+			flash.now[:alert] = "Error Editing your  photo!"
 			render 'edit'
 		end
 	end

@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+  repo_name = '#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 #paperclip
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
 
 #mysql
 gem 'mysql2', '~> 0.3.16'
@@ -27,7 +27,8 @@ gem 'mysql2', '~> 0.3.16'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-gem "jquery-slick-rails"
+gem 'jquery-slick-rails'
+gem 'unveil-rails', '~> 0.2.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -22,13 +22,12 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-
 		if @user.save
 		  sign_in @user
       redirect_to @user
 		else
-		  flash.now[:notice] ='There was an error saving'
-			render action:"new"
+		  flash.now[:notice] = "Please complete all fields."
+			render 'new'
 		end
 	end
 
