@@ -27,7 +27,11 @@
 	display: block;
 	font-size: 0;
 	padding: 10px;
+	@include media-min-width (mobile) {
+		padding: 10px 20px;
+	}
 	@include media-min-width (tablet) {
+		padding: 10px 30px;
 		&.grid2 {
 			.media-block {
 				@include calc( width, '50% - 10px');
@@ -44,13 +48,23 @@
 .media-block {
 	position: relative;
 	display: inline-block;
-	@include calc( width, '100% - 10px');
 	margin: 5px;
+	@include calc( width, '100% - 10px');
 	@include prefix(background-size, cover, webkit ms o);
 	overflow: hidden;
+	&__image {
+		position: absolute;
+		display: block;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+  	@include prefix(transition, opacity 0.3s ease-in, webkit ms o);
+	}
 
 	&__link {
-
 		position: absolute;
 		display: block;
 		top: 0;
@@ -70,9 +84,9 @@
 				.media-copy {
 					&__title {
 						color: $white;
-						font-size: 35px;
+						font-size: 32px;
 						@include media-min-width(desktop) {
-							font-size: 45px;
+							font-size: 42px;
 						}
 						@include prefix(transition, all 0.7s ease-in 0.1s, webkit ms o);
 					}
@@ -89,7 +103,7 @@
 	&:before {
 		content: "";
 		display: block;
-		padding-bottom: 60%;
+		@include calc( padding-top, '591.44/1127.34*100%');
 	}
 
 	@include media-min-width (mobile) {
@@ -136,15 +150,16 @@
 }
 
 .show-photo {
-	margin: 10px 20px;
+	margin: 20px 20px;
 	max-width: 720px;
 	@include media-min-width (tablet) {
-		margin: 10px auto 20px;
+		margin: 30px auto 20px;
 	}
 	&__image {
 		display: block;
 		width: 100%;
 		margin: 10px auto 20px;
+
 	}
 	&__title {
 		font-family: $sanserif;
@@ -186,5 +201,17 @@
 		@include media-min-width (tablet) {
 			font-size: 20px;
 		}
+	}
+}
+
+.edit-photo {
+	width: 100%;
+	margin-top: 130px;
+	.cancel {
+		color: $purple;
+		text-align: right;
+	}
+	.confirm {
+		color: $purple;
 	}
 }

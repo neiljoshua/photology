@@ -30,12 +30,43 @@ $document.on 'turbolinks:load', (e) ->
 
   load_slick = ->
     $('.slider').slick
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 1500,
+        dots: true,
+        responsive: [
+          {
+            breakpoint: 1024
+            settings:
+              slidesToShow: 3
+              slidesToScroll: 1
+              infinite: true
+          }
+          {
+            breakpoint: 768
+            settings:
+              slidesToShow: 2
+              slidesToScroll: 1
+          }
+          {
+            breakpoint: 600
+            settings:
+              slidesToShow: 1
+              slidesToScroll: 1
+          }
+  ]
 
   load_slick()
+
+  unveil_images = ->
+    $('img').unveil 200, ->
+      $(this).load ->
+        @style.opacity = 1
+        return
+      return
+
+  unveil_images()
 
   $ ->
   timer = undefined

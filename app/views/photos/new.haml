@@ -1,5 +1,4 @@
 .row.center
 	%h2 Upload Photo
-	%p.cancel
-		= link_to 'Cancel', user_path(current_user.id)
+	= link_to 'Cancel', user_path(current_user.id), :class => 'cancel_link'
 	= render 'form'

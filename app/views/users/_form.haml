@@ -1,20 +1,14 @@
-= form_with model: @user, url: user_create_path do |form|
-	-if @user.errors.any?
-		#error_explanation
-			%h3
-				= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:"
-			%ul
-				- @user.errors.full_messages.each do |msg|
-					%li
-						= msg
+= form_for @user, url: user_create_path do |form|
+	- if flash[:notice]
+		.notice= flash[:notice]
 	= form.label :Name
-	= form.text_field :name
+	= form.text_field :name, placeholder: "John Smith"
 	= form.label :Email
-	= form.text_field :email
+	= form.text_field :email, placeholder: "name@email.com"
 	= form.label :Username
-	= form.text_field :username
+	= form.text_field :username, placeholder: "awesome user name"
 	= form.label :Password
-	= form.text_field :password
+	= form.text_field :password, placeholder: "Enter Password"
 	= form.label 'Confirm password'
-	= form.text_field :password_confirmation
+	= form.text_field :password_confirmation, placeholder: "Confirm Password"
 	= form.submit 'Sign up', class: "btn btn-primary"

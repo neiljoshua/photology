@@ -4,8 +4,9 @@
 	%a.icon-grid3.show-grid3
 #media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @photos.each do |photo|
-		.media-block{style: "background-image: url('#{image_path(photo.image.url)}')"}
-			= link_to showphotos_path(photo.id), :class => 'media-block__link' do
+		.media-block
+			= lazy_image_tag(photo.image.url, alt: photo.title, :class => 'media-block__image' )
+			= link_to showphoto_path(photo.id), "data-turbolinks" => "false", :class => 'media-block__link' do
 				.media-copy.center
 					%h3.media-copy__title= photo.title
 					%p.media-copy__caption= photo.caption

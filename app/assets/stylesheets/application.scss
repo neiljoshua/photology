@@ -57,6 +57,10 @@
  			@include prefix(transition, opacity .6s linear .2s, webkit ms o);
  		}
  	}
+ 	&.fixed {
+		overflow-y: hidden;
+		height: 100vh;
+	}
  }
 
 i{

@@ -6,18 +6,19 @@
 	-if signed_in?
 		%ul.user-menu
 			%li.user-menu__item
-				= link_to 'Edit Profile', edit_user_path(current_user)
+				= link_to 'Edit Profile', edit_user_path(current_user), :class => 'user-menu__link'
 			%li.user-menu__item
-				= link_to 'Add Photo', newphoto_path
+				= link_to 'Add Photo', newphoto_path, :class => 'user-menu__link'
 			%li.user-menu__item
-				= link_to 'Log Out', logout_path , method: :delete
+				= link_to 'Log Out', logout_path , method: :delete, :class => 'user-menu__link'
 .media-buttons
 	%a.icon-grid2.show-grid2.active
 	%a.icon-grid3.show-grid3
 #media.media.grid2{"data-turbolinks-permanent" => ""}
 	- @user.photos.reverse_each do |photo|
-		.media-block{style: "background-image: url('#{image_path(photo.image.url)}')"}
-			= link_to users_user_photo_path(photo.user.id,photo.id), :class => 'media-block__link' do
+		.media-block
+			= lazy_image_tag(photo.image.url, alt: photo.title, :class => 'media-block__image' )
+			= link_to users_user_photo_path(photo.user.id,photo.id), "data-turbolinks" => "false", :class => 'media-block__link' do
 				.media-copy.center
 					%h3.media-copy__title= photo.title
 					%p.media-copy__caption= photo.caption
