@@ -98,8 +98,25 @@
 	}
 }
 
-.submit,
-.cancel {
+.sign-up {
+	padding-top: 40px;
+	@include media-min-width (mobile) {
+		padding-top: 50px;
+	}
+	@include media-min-width (tablet) {
+		padding-top: 80px;
+	}
+	h2,
+	p {
+		color: $purple;
+		a {
+			color: $purple;
+			font-size: 18px;
+			font-family: $serif;
+		}
+	}
+}
+.submit {
   display: block;
   width: 200px;
   margin: 40px auto;
