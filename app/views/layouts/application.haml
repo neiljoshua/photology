@@ -1,7 +1,10 @@
 !!!
-%html
+%html{:lang => "en-US"}
 	%head
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		%meta{:content => "Rails Photo App.", :name => "Description"}/
+		%meta{:content => "HTML,Rails,Sass,Turbolinks", :name => "keywords"}/
+		%meta{:content => "Neil McGrath", :name => "author"}/
 		%meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
 		-if controller_name == "users" && action_name == "show"
 			%meta{content: "reload", name: "turbolinks-visit-control"}/
@@ -41,3 +44,4 @@
 					= link_to 'About', main_app.about_path, "data-turbolinks" => "false", :class => current_class?(about_path)
 
 			=yield
+}
