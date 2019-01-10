@@ -60,7 +60,7 @@ $document.on 'turbolinks:load', (e) ->
   load_slick()
 
   unveil_images = ->
-    $('img').unveil 200, ->
+    $('img').unveil 150, ->
       $(this).load ->
         @style.opacity = 1
         return

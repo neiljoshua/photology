@@ -8,4 +8,10 @@
 			= link_to category_path(category), class: 'category_link center' do
 				= category.name
 				%span.category_caption= category.caption
+%script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=UA-82838385-6"}
+:javascript
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
+	gtag('config', 'UA-82838385-6');
