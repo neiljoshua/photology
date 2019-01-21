@@ -1,8 +1,8 @@
 .hamburger {
 	position: fixed;
 	visibility: visible;
-	top: 10px;
-	right: 10px;
+	top: 20px;
+	right: 20px;
 	margin: 0;
 	padding: 0;
 	width: 40px;
@@ -10,14 +10,14 @@
 	font-size: 0;
 	text-indent: -9999px;
 	@include media-min-width(mobile) {
-  	top: 20px;
-  	right: 20px;
+  	top: 30px;
+  	right: 30px;
   }
 	@include media-min-width(tablet) {
-		top: 30px;
-		right: 30px;
-		width: 50px;
-		height: 50px;
+		top: 40px;
+		right: 40px;
+		width: 60px;
+		height: 60px;
 	}
 	@include prefix(border-radius, 48px, webkit ms o);
 	background-color: $purple;
@@ -62,15 +62,25 @@
 		&::after{
 			bottom: -9px;
 		}
-		@include media-min-width(tablet) {
-    	top: 25px;
+		@include media-min-width(mobile) {
     	left: 10px;
 			right: 10px;
     	&::before {
-	      top: -9px;
+	      top: -8px;
 	    }
 	    &::after{
-	      bottom: -9px;
+	      bottom: -8px;
+	    }
+    }
+    @include media-min-width(tablet) {
+    	top: 30px;
+    	left: 10px;
+			right: 10px;
+    	&::before {
+	      top: -10px;
+	    }
+	    &::after{
+	      bottom: -10px;
 	    }
     }
 	}

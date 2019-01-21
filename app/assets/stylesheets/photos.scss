@@ -3,6 +3,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// photos index Views
+
 .media-buttons {
 	display: none;
 	@include media-min-width (tablet) {
@@ -144,11 +147,14 @@
 	}
 }
 
+//Photo show view
+
 .show-photo {
-	margin: 20px 20px;
+	margin: 20px;
 	max-width: 720px;
 	@include media-min-width (tablet) {
-		margin: 30px auto 20px;
+		max-width: 100%;
+		margin: 30px 20px 20px;
 	}
 	&__image {
 		display: block;
@@ -182,14 +188,10 @@
 }
 
 .photo-links {
-	margin: 70px 20px 0;
+	margin: 20px;
 	max-width: 720px;
-	@include media-min-width (tablet) {
-		margin: 130px auto 0;
-	}
 	&__link {
 		display: inline-block;
-		margin: 20px 10px 0 0;
 		color: $purple;
 		font-family: $sanserif;
 		font-size: 16px;
@@ -198,6 +200,8 @@
 		}
 	}
 }
+
+//Photo Edit view
 
 .edit-photo {
 	width: 100%;

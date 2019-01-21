@@ -33,7 +33,7 @@
  */
 
  html,
- body{
+ body {
  	width: 100%;
  	height: 100%;
  }
@@ -44,20 +44,36 @@
  	}
  }
 
- .wrapper {
+.wrapper {
  	width: 100%;
  	overflow: hidden;
  	header {
 		@include prefix(transition, opacity .6s linear .3s, webkit ms o);
 	}
- 	&.open-menu {
- 		.scroll,
- 		header {
- 			opacity: 0;
- 			@include prefix(transition, opacity .6s linear .2s, webkit ms o);
- 		}
- 	}
- }
+	main {
+		margin: 0;
+		padding: 0;
+		max-width: 100%;
+		&.nothome {
+			padding: 60px 20px;
+			@include calc(width, "100% - 40px");
+			@include media-min-width(mobile) {
+				padding: 60px 30px;
+				@include calc(width, "100% - 60px");
+			}
+			@include media-min-width(tablet) {
+				max-width: 720px;
+				margin: 0 auto;
+				padding: 90px 0;
+			}
+			@include media-min-width(desktop) {
+				max-width: 1024px;
+				margin: 0 auto;
+				padding: 100px 0 60px;
+			}
+		}
+	}
+}
 
 i{
 	font-size: 20px;
@@ -67,8 +83,7 @@ i{
 }
 
 .page-title {
-	margin-top: 100px;
-	margin-bottom: 50px;
+	margin: 40px 0;
 	text-align: center;
 	font-size: 35px;
 	font-family: $sanserif;
@@ -81,12 +96,12 @@ i{
 }
 
 .notice {
-  padding: 10px;
   margin-bottom: 20px;
+  padding: 10px;
   border: 1px solid $purple;
   text-align: center;
-  color: $purple;
   font-size: 22px;
+  color: $purple;
 }
 
 .row {
@@ -125,6 +140,7 @@ i{
 	@include prefix(transition, all 0.6s ease-in-out, webkit ms o);
 	z-index: 4000;
 	@include media-min-width (tablet) {
+		background-color: rgba( $purple, .8 );
 		right: -25%;
 	}
 	&_list {

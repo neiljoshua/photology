@@ -90,7 +90,6 @@ $(document).on 'click', 'a.hamburger', (e) ->
   e.preventDefault()
   $(this).toggleClass 'is-active'
   $('.menu').toggleClass 'menu__visible'
-  $('.wrapper').toggleClass 'open-menu'
   $('body').toggleClass 'open-menu'
 
 $(document).on 'click', '.media-buttons a', (e) ->
