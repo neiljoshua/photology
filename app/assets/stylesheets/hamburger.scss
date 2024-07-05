@@ -1,23 +1,16 @@
 .hamburger {
-	position: fixed;
+	position: relative;
 	visibility: visible;
-	top: 20px;
-	right: 20px;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	width: 40px;
 	height: 40px;
 	font-size: 0;
 	text-indent: -9999px;
-	@include media-min-width(mobile) {
-  	top: 30px;
-  	right: 30px;
-  }
 	@include media-min-width(tablet) {
-		top: 40px;
-		right: 40px;
-		width: 60px;
-		height: 60px;
+		width: 50px;
+		height: 50px;
 	}
 	@include prefix(border-radius, 48px, webkit ms o);
 	background-color: $purple;
@@ -38,52 +31,34 @@
 		outline: none;
 	}
 	span {
-		display: block;
-		position: absolute;
-		top: 20px;
-		left: 8px;
-		right: 8px;
-		height: 1px;
-		background: $white;
-		&::before,
-		&::after {
-			position: absolute;
-			display: block;
-			left: 0;
-			width: 100%;
-			height: 1px;
-			background-color: $white;
-			content: "";
-			opacity: 1;
-		}
-		&::before {
-			top: -9px;
-		}
-		&::after{
-			bottom: -9px;
-		}
-		@include media-min-width(mobile) {
-    	left: 10px;
-			right: 10px;
-    	&::before {
-	      top: -8px;
-	    }
-	    &::after{
-	      bottom: -8px;
-	    }
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 11px;
+    right: 11px;
+    height: 1px;
+    background: $white;
+    &::before, &::after{
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: $white;
+      content: "";
+    }
+    &::before {
+      top: -6px;
+    }
+    &::after{
+      bottom: -6px;
     }
     @include media-min-width(tablet) {
-    	top: 30px;
-    	left: 10px;
-			right: 10px;
-    	&::before {
-	      top: -10px;
-	    }
-	    &::after{
-	      bottom: -10px;
-	    }
+      top: 25px;
+      left: 15px;
+      right: 15px;
     }
-	}
+  }
 }
 
 .hamburger--rot {
@@ -96,13 +71,14 @@
 /* active state, i.e. menu open */
 .hamburger--rot.is-active {
 		opacity: .9;
+		background: $silver;
 		span {
-			background: $white;
+			background: $purple;
 			@include prefix(transition, transform 0.5s linear 0.1s, webkit ms o);
 			transform: rotate(90deg);
 			&::before,
 			&::after {
-				background-color: $white;
+				background-color: $purple;
 				@include prefix(transition, transform 0.5s linear 0.1s, webkit ms o);
 			}
 		}

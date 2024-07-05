@@ -2,7 +2,7 @@
 %html{:lang => "en-US"}
 	%head
 		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-		%meta{:content => "Rails Photo App.", :name => "Description"}/
+		%meta{:content => "Rails Photo App", :name => "Description"}/
 		%meta{:content => "HTML,Rails,Sass,Turbolinks", :name => "keywords"}/
 		%meta{:content => "Neil McGrath", :name => "author"}/
 		%meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
@@ -20,7 +20,7 @@
 			-if controller_name == "categories" && action_name == "index"
 				%header.clear
 					= link_to categories_path, "data-turbolinks" => "false", :class => "logo" do
-						%i.icon-camera
+						= embedded_svg "camera.svg", class: 'logo__image'
 					%a.hamburger.hamburger--rot
 						%span
 				%main
@@ -28,7 +28,7 @@
 			-else
 				%header
 					= link_to categories_path, "data-turbolinks" => "false", :class => "logo" do
-						%i.icon-camera
+						= embedded_svg "camera.svg", class: 'logo__image'
 					%a.hamburger.hamburger--rot
 						%span
 				%main.nothome

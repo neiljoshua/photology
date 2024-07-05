@@ -1,5 +1,6 @@
 .show-photo
-	= image_tag(@photo.image.url, class: 'show-photo__image')
+	.show-photo__image
+		= image_tag(@photo.image.url)
 	%h2.show-photo__title
 		= @photo.title
 	%p.show-photo__caption
