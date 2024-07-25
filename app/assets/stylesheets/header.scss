@@ -1,38 +1,43 @@
 
 header {
-	display: block;
 	position: fixed;
-	z-index: 9000;
-	width: 100%;
-	background-color: $white;
-	top: 0;
-	left: 0;
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  z-index: 9000;
+  @include media-min-width(tablet) {
+    width: calc(100% - 60px);
+    margin: 30px;
+  }
+  @include media-min-width(desktop) {
+    width: calc(100% - 80px);
+    margin: 40px;
+  }
+
 	.logo {
-		display: inline-block;
-		position: fixed;
-		vertical-align: middle;
-		width: 60px;
-		height: 60px;
-		top: 20px;
-		left: 20px;
-    @include media-min-width (mobile) {
-    	top: 30px;
-			left: 30px;
+		display: flex;
+    justify-content: space-around;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: $purple;
+    @include media-min-width(tablet) {
+    	width: 50px;
+    	height: 50px;
     }
-    @include media-min-width (tablet) {
-    	top: 40px;
-			left: 40px;
-    }
-  	i {
-  		display: inline-block;
-	    font-size: 30px;
-	    color: $purple;
-	    line-height: 30px;
-	    font-weight: 600;
-	    @include media-min-width (tablet) {
-	    	font-size: 45px;
-	    	line-height: 60px;
-	    }
+  	&__image {
+  		display: block;
+  		height: 100%;
+  		width: 24px;
+	  	@include media-min-width(tablet) {
+	  		width: 28px;
+	  	}
+  	}
+  	&__path {
+  		display: block;
+	  	fill: $white;
   	}
 	}
 

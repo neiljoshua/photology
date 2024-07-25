@@ -30,3 +30,6 @@
 #Git flow
 gitflow-installer.sh
 gitflow/
+
+#Project Notes
+.project_notes

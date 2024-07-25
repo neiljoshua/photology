@@ -19,7 +19,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		@include prefix(filter, brightness(80%),webkit ms o );
+		@include prefix(filter, brightness(50%),webkit ms o );
+		z-index: 5;
 		img {
 			position: absolute;
 			top: 0;
@@ -43,6 +44,7 @@
  		color: $white;
  		letter-spacing: 5px;
  		text-align: center;
+ 		z-index: 10;
  		@include media-min-width(tablet) {
  			font-size: 120px;
  		}
