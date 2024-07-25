@@ -33,3 +33,7 @@ gitflow/
 
 #Project Notes
 .project_notes
+
+
+#Rails
+Gemfile.lock
