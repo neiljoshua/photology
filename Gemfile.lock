@@ -94,6 +94,7 @@ GEM
     erubis (2.7.0)
     execjs (2.10.0)
     ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
     globalid (1.4.0)
       activesupport (>= 6.1)
     haml (6.3.0)
@@ -160,6 +161,8 @@ GEM
       net-protocol
     nio4r (2.7.5)
     nokogiri (1.19.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
@@ -244,6 +247,7 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     sqlite3 (2.7.0-arm64-darwin)
+    sqlite3 (2.7.0-x86_64-linux-gnu)
     temple (0.10.3)
     thor (1.5.0)
     tilt (2.6.0)
@@ -273,6 +277,7 @@ GEM
 
 PLATFORMS
   arm64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   activestorage
